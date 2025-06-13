@@ -3,6 +3,8 @@ package com.example.KeibaStarter.Controllers;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,7 +32,12 @@ public class KeibaController {
     }
 
     @GetMapping("/horses")
-    public List<Horse> getHorses() {
+    public List<Horse> getHorses() { 
         return horseService.getAllHorses();
+    }
+
+    @PostMapping("/add")
+    public void createHorse(@RequestBody Horse horse) {
+        horseService.createHorse(horse);
     }
 }

@@ -9,19 +9,31 @@ import jakarta.persistence.Id;
 public class Horse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
     private String name;
+    private boolean runsTurf;
+    private Integer age;
+    private boolean isMale;
 
-    public Horse(Integer id, String name) {
-        this.id = id;
+    public Horse(String name, boolean runsTurf, Integer age, boolean isMale) {
         this.name = name;
-    }
-
-    public Integer getId() {
-        return this.id;
+        this.runsTurf = runsTurf;
+        this.age = age;
+        this.isMale = isMale;
     }
 
     public String getName() {
         return this.name;
+    }
+
+    public boolean getRunsTurf() {
+        return this.runsTurf;
+    }
+
+    public Integer getAge() {
+        return this.age;
+    }
+
+    public boolean getIsMale() {
+        return this.isMale;
     }
 }

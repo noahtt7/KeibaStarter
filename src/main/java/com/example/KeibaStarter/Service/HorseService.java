@@ -13,7 +13,7 @@ import com.example.KeibaStarter.Repository.HorseRepository;
 public class HorseService {
     @Autowired
     private final HorseRepository horseRepository;
-    private List<Horse> lst = new ArrayList<>(List.of(new Horse(1, "Tokai Teio"), new Horse(2, "Stay Gold")));
+    //private List<Horse> lst = new ArrayList<>(List.of(new Horse(1, "Tokai Teio"), new Horse(2, "Stay Gold")));
 
     @Autowired
     public HorseService(HorseRepository horseRepository) {
@@ -21,12 +21,13 @@ public class HorseService {
     }
 
     public List<Horse> getAllHorses() {
-        //return horseRepository.findAll();
-        return lst;
+        return horseRepository.findAll();
+        //return lst;
     }
 
-    public void createHorse(Horse horse) {
-        //horseRepository.save(horse);
-        lst.add(new Horse(horse.getId(), horse.getName()));
+    public Horse createHorse(Horse horse) {
+        return horseRepository.save(horse);
+
+        //lst.add(new Horse(horse.getId(), horse.getName()));
     }
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.KeibaStarter.Models.Horse;
 
 @Repository
-public interface HorseRepository extends JpaRepository<Horse, Integer> {
+public interface HorseRepository extends JpaRepository<Horse, String> {
 
 }

@@ -7,12 +7,16 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Horse {
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String name;
     private boolean runsTurf;
     private Integer age;
     private boolean isMale;
+
+    // Constructor required by JPA
+    public Horse() {
+    }
 
     public Horse(String name, boolean runsTurf, Integer age, boolean isMale) {
         this.name = name;

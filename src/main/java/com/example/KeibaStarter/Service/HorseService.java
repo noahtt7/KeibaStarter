@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.example.KeibaStarter.Models.Horse;
 import com.example.KeibaStarter.Repository.HorseRepository;
@@ -26,6 +30,9 @@ public class HorseService {
     }
 
     public Horse createHorse(Horse horse) {
+        if (horseRepository.existsById(horse.getName())) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
         return horseRepository.save(horse);
 
         //lst.add(new Horse(horse.getId(), horse.getName()));

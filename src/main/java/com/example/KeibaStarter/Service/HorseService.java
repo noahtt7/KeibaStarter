@@ -30,11 +30,15 @@ public class HorseService {
     }
 
     public Horse createHorse(Horse horse) {
-        if (horseRepository.existsById(horse.getName())) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        }
+        // if (horseRepository.existsById(horse.getName())) {
+        //     throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        // }
         return horseRepository.save(horse);
 
         //lst.add(new Horse(horse.getId(), horse.getName()));
+    }
+
+    public void deleteHorse(String name) {
+        horseRepository.deleteById(name);
     }
 }

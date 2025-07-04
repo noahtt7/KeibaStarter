@@ -1,24 +1,34 @@
 package com.example.KeibaStarter.Models;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
+@Entity
 public class Race {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private int length;
+
+    @OneToMany(mappedBy = "race")
     private List<Horse> racers;
+
+    @OneToOne
     private Horse winner;
 
     public Race() {
     }
 
     public Race(int length) {
-        this.length = 2000;
+        this.length = length;
+        this.racers = new ArrayList<Horse>();
     }
 
     public List<Horse> getRacers() {

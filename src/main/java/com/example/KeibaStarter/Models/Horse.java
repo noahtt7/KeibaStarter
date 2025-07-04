@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Horse {
@@ -13,6 +14,9 @@ public class Horse {
     private boolean runsTurf;
     private Integer age;
     private boolean isMale;
+
+    @ManyToOne
+    private Race race;
 
     // Constructor required by JPA
     public Horse() {

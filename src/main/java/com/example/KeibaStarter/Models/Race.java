@@ -15,7 +15,7 @@ public class Race {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private int length;
+    public int length;
 
     @OneToMany(mappedBy = "race")
     private List<Horse> racers;
@@ -36,7 +36,7 @@ public class Race {
     }
 
     public void addRacer(Horse horse) {
-        racers.add(horse);
+        this.racers.add(horse);
     }
 
     public void setWinner(Horse winHorse) {

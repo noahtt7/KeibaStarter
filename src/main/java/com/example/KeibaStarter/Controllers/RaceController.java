@@ -1,5 +1,6 @@
 package com.example.KeibaStarter.Controllers;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.example.KeibaStarter.Service.RaceService;
 
@@ -24,5 +27,18 @@ public class RaceController {
     @PostMapping("/createrace/{raceName}")
     public void createRace(@PathVariable String raceName) {
         raceService.createRace(raceName);
+    }
+
+    @GetMapping("/simulaterace/{raceId}")
+    public void simulateRace(@PathVariable long raceId) {
+        raceService.simulateRace(raceId);
+    }
+
+    @PostMapping("/addracer/{raceId}/{racerName}")
+    public void addRacer(@PathVariable long raceId, @PathVariable String racerName) {
+        if (!raceService.isValidRace(raceId) || !raceService.isValidRacer(racerName)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        raceService.addRacer(raceId, racerName);
     }
 }

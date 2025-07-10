@@ -3,6 +3,7 @@ package com.example.KeibaStarter.Models;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +18,7 @@ public class Race {
     private long id;
     public int length;
 
-    @OneToMany(mappedBy = "race")
+    @OneToMany(mappedBy = "race", cascade = CascadeType.ALL)
     private List<Horse> racers;
 
     @OneToOne
@@ -43,8 +44,8 @@ public class Race {
         this.winner = winHorse;
     }
 
-    public void getWinner() {
-
+    public Horse getWinner() {
+        return this.winner;
     }
 
 }

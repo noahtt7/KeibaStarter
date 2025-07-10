@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import lombok.Setter;
 
 @Entity
 public class Horse {
@@ -43,5 +44,9 @@ public class Horse {
 
     public boolean getIsMale() {
         return this.isMale;
+    }
+
+    public void setRace(Race race) {
+        this.race = race;
     }
 }

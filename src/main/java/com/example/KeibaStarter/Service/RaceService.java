@@ -25,7 +25,7 @@ public class RaceService {
     }
 
     public void createRace(String raceName) {
-        Race race = null;
+        Race race = new Race();
         if (raceName.equals("tk")) {
             race = new Race(2200);
         } else if (raceName.equals("ak")) {
@@ -58,11 +58,22 @@ public class RaceService {
         Horse winner = race.getRacers().get(rand.nextInt((int) raceId));
         //raceRepository.getById(raceRepository.count()).setWinner(winner);
         race.setWinner(winner);
+        raceRepository.save(race);//
+    }
+
+    public String getWinner(long raceId) { 
+        Horse winner = raceRepository.getById(raceId).getWinner();
+        return winner.getName();
     }
 
     public void addRacer(long raceId, String racerName) {
         Race race = raceRepository.getById(raceId);
-        Horse racer = horseRepository.getById(racerName);
+        Horse racer = horseRepository.findById(racerName).orElseThrow();
+
+        racer.setRace(race);
+
+        horseRepository.save(racer);
+
         race.addRacer(racer);
         raceRepository.save(race);
     }

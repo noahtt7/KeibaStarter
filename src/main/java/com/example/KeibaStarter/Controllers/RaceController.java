@@ -34,6 +34,11 @@ public class RaceController {
         raceService.simulateRace(raceId);
     }
 
+    @GetMapping("/getwinner/{raceId}")
+    public String getWinner(@PathVariable long raceId) {
+        return raceService.getWinner(raceId);
+    }
+
     @PostMapping("/addracer/{raceId}/{racerName}")
     public void addRacer(@PathVariable long raceId, @PathVariable String racerName) {
         if (!raceService.isValidRace(raceId) || !raceService.isValidRacer(racerName)) {

@@ -13,6 +13,7 @@ public class Horse {
     @Id
     private String name;
     private boolean runsTurf;
+    private int lengthAptitude;
     private Integer age;
     private boolean isMale;
 
@@ -23,9 +24,10 @@ public class Horse {
     public Horse() {
     }
 
-    public Horse(String name, boolean runsTurf, Integer age, boolean isMale) {
+    public Horse(String name, boolean runsTurf, int aptitude, Integer age, boolean isMale) {
         this.name = name;
         this.runsTurf = runsTurf;
+        this.lengthAptitude = aptitude;
         this.age = age;
         this.isMale = isMale;
     }
@@ -44,6 +46,10 @@ public class Horse {
 
     public boolean getIsMale() {
         return this.isMale;
+    }
+
+    public int getAptitude() {
+        return this.lengthAptitude;
     }
 
     public void setRace(Race race) {

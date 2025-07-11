@@ -55,7 +55,19 @@ public class RaceService {
         Random rand = new Random();
         System.out.println("race repo " + raceRepository.count() + race.length);
         System.out.println("racer num " + race.getRacers().size());
-        Horse winner = race.getRacers().get(rand.nextInt((int) raceId));
+
+        // simulate
+        Horse winner = new Horse();
+        int max = 0;
+        for (Horse racer : race.getRacers()) {
+            System.out.println("apt " + Math.abs(race.length - racer.getAptitude()));
+            double performance = 1 + Math.abs(race.length - racer.getAptitude()) + (Math.random() * 5);
+            if (performance >= max) {
+                winner = racer;
+            }
+        }
+
+        //Horse winner = race.getRacers().get(rand.nextInt((int) raceId));
         //raceRepository.getById(raceRepository.count()).setWinner(winner);
         race.setWinner(winner);
         raceRepository.save(race);//

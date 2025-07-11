@@ -1,7 +1,9 @@
 package com.example.KeibaStarter.Models;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -19,7 +21,7 @@ public class Race {
     public int length;
 
     @OneToMany(mappedBy = "race", cascade = CascadeType.ALL)
-    private List<Horse> racers;
+    private Set<Horse> racers;
 
     @OneToOne
     private Horse winner;
@@ -29,10 +31,10 @@ public class Race {
 
     public Race(int length) {
         this.length = length;
-        this.racers = new ArrayList<Horse>();
+        this.racers = new HashSet<Horse>();
     }
 
-    public List<Horse> getRacers() {
+    public Set<Horse> getRacers() {
         return racers;
     }
 

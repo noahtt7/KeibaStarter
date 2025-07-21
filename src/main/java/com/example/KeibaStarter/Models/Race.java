@@ -2,6 +2,7 @@ package com.example.KeibaStarter.Models;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -40,6 +41,15 @@ public class Race {
 
     public void addRacer(Horse horse) {
         this.racers.add(horse);
+    }
+
+    public void removeRacer(String racerName) {
+        for (Horse racer : racers) {
+            if (racer.getName().equals(racerName)) {
+                racers.remove(racer);
+                return;
+            }
+        }
     }
 
     public void setWinner(Horse winHorse) {

@@ -1,5 +1,7 @@
 package com.example.KeibaStarter.Models;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,11 +15,13 @@ public class Horse {
     @Id
     private String name;
     private boolean runsTurf;
-    private int lengthAptitude;
     private Integer age;
     private boolean isMale;
+    
+    @Column(name = "length_aptitude")
+    private Integer lengthAptitude;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL) //////////////////
     private Race race;
 
     // Constructor required by JPA

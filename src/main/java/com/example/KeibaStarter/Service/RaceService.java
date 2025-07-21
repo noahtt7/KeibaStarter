@@ -30,6 +30,10 @@ public class RaceService {
             race = new Race(2200);
         } else if (raceName.equals("ak")) {
             race = new Race(2500);
+        } else if (raceName.equals("jd")) {
+            race  = new Race(2400);
+        } else if (raceName.equals("ks")) {
+            race = new Race(3000);
         }
 
         System.out.println("racer");
@@ -88,6 +92,11 @@ public class RaceService {
 
         race.addRacer(racer);
         raceRepository.save(race);
+    }
+
+    public void removeRacer(long raceId, String racerName) {
+        Race race = raceRepository.getById(raceId);
+        race.removeRacer(racerName);
     }
 
     public boolean isValidRace(long raceId) {

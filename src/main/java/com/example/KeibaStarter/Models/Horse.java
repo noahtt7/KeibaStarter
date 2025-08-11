@@ -1,10 +1,13 @@
 package com.example.KeibaStarter.Models;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import lombok.Setter;
 
 @Entity
 public class Horse {
@@ -14,17 +17,21 @@ public class Horse {
     private boolean runsTurf;
     private Integer age;
     private boolean isMale;
+    
+    @Column(name = "length_aptitude")
+    private Integer lengthAptitude;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL) //////////////////
     private Race race;
 
     // Constructor required by JPA
     public Horse() {
     }
 
-    public Horse(String name, boolean runsTurf, Integer age, boolean isMale) {
+    public Horse(String name, boolean runsTurf, int aptitude, Integer age, boolean isMale) {
         this.name = name;
         this.runsTurf = runsTurf;
+        this.lengthAptitude = aptitude;
         this.age = age;
         this.isMale = isMale;
     }
@@ -43,5 +50,13 @@ public class Horse {
 
     public boolean getIsMale() {
         return this.isMale;
+    }
+
+    public int getAptitude() {
+        return this.lengthAptitude;
+    }
+
+    public void setRace(Race race) {
+        this.race = race;
     }
 }

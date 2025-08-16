@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.KeibaStarter.Service.RaceService;
 
+@CrossOrigin("http://localhost:5173/")
 @RestController
 @RequestMapping("/race")
 public class RaceController {

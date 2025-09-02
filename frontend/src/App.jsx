@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { listRaces } from './services/KeibaService'
+import { createRace } from './services/KeibaService'
 import { Header } from './components/Header'
 import { RaceManager } from './components/RaceManager'
 import { BrowserRouter, Route, Router, Routes} from 'react-router-dom'
@@ -17,6 +18,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   const [races, setRaces] = useState('')
+  const [message, setMessage] = useState('')
 
   useEffect(() => {
     listRaces().then((response) => {
@@ -25,6 +27,32 @@ function App() {
       console.error(error);
     })
   }, []);
+
+  // useEffect(() => {
+
+  // }
+  // )
+
+  const handleCreateRace = async () => {
+    fetch('http://localhost:8080/race/createrace/ak', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      }).then(() => {
+        console.log('new race added');
+      });
+    }
+    // try {
+    //   const response = await createRace;
+    //   setMessage('Race successfully created.');
+    //   console.log(response.data);
+    // } catch (error) {
+    //   setMessage('Error');
+    //   console.error("Error:", error);
+    // }
+
 
   return (
     <>
@@ -74,7 +102,7 @@ function App() {
       </div>
       <h1>Keiba Starter</h1>
       <div className="card">
-        <button onClick={{}}>New Race</button>
+        <button className="bg-white text-dark"onClick={() => handleCreateRace() }>New Race</button>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>

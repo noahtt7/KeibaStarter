@@ -28,13 +28,8 @@ function App() {
     })
   }, []);
 
-  // useEffect(() => {
-
-  // }
-  // )
-
-  const handleCreateRace = async () => {
-    fetch('http://localhost:8080/race/createrace/ak', {
+  const handleCreateRace = async (raceStr) => {
+    fetch('http://localhost:8080/race/createrace/' + raceStr, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -44,15 +39,6 @@ function App() {
         console.log('new race added');
       });
     }
-    // try {
-    //   const response = await createRace;
-    //   setMessage('Race successfully created.');
-    //   console.log(response.data);
-    // } catch (error) {
-    //   setMessage('Error');
-    //   console.error("Error:", error);
-    // }
-
 
   return (
     <>
@@ -102,13 +88,13 @@ function App() {
       </div>
       <h1>Keiba Starter</h1>
       <div className="card">
-        <button className="bg-white text-dark"onClick={() => handleCreateRace() }>New Race</button>
+        <button className="bg-white text-dark"onClick={() => handleCreateRace('ak') }>New Race (Arima Kinen)</button>
+        <button className="bg-white text-dark"onClick={() => handleCreateRace('tk') }>New Race (Takarazuka Kinen)</button>
+        <button className="bg-white text-dark"onClick={() => handleCreateRace("jd") }>New Race (Japan Derby)</button>
+        <button className="bg-white text-dark"onClick={() => handleCreateRace('ks') }>New Race (Kikka Sho)</button>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
 
       <div>{races}</div>

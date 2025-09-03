@@ -6,13 +6,14 @@ import { listRaces } from './services/KeibaService'
 import { createRace } from './services/KeibaService'
 import { Header } from './components/Header'
 import { RaceManager } from './components/RaceManager'
+import { RaceButton } from './components/RaceButton'
 import { BrowserRouter, Route, Router, Routes} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav'
 import NavBar from 'react-bootstrap/NavBar'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -52,6 +53,7 @@ function App() {
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">Horses</Nav.Link>
+            <Nav.Link href="#link">Race History</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -86,12 +88,9 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a> */}
       </div>
-      <h1>Keiba Starter</h1>
+        <h1>Keiba Starter</h1>
+        <RaceButton></RaceButton>
       <div className="card">
-        <button className="bg-white text-dark"onClick={() => handleCreateRace('ak') }>New Race (Arima Kinen)</button>
-        <button className="bg-white text-dark"onClick={() => handleCreateRace('tk') }>New Race (Takarazuka Kinen)</button>
-        <button className="bg-white text-dark"onClick={() => handleCreateRace("jd") }>New Race (Japan Derby)</button>
-        <button className="bg-white text-dark"onClick={() => handleCreateRace('ks') }>New Race (Kikka Sho)</button>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>

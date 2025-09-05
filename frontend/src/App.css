@@ -7,6 +7,11 @@
   text-align: center;
 }
 
+.horse-container {
+  width: 500px;
+  padding: dense;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

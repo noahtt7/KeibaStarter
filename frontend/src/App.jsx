@@ -12,8 +12,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav'
 import NavBar from 'react-bootstrap/NavBar'
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useNavigate } from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import ChooseRacerPage from './ChooseRacerPage';
+import HomePage from './HomePage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -40,6 +43,10 @@ function App() {
         console.log('new race added');
       });
     }
+
+    // const handleRaceClick = () => {
+    //   navigate('/races');
+    // };
 
   return (
     <>
@@ -76,17 +83,13 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route path='/' element = { <RaceManager/> }/>
+          <Route path='/' element = { <HomePage/> }/>
+          <Route path='/races' element = { <ChooseRacerPage/> }/>
         </Routes>
       </BrowserRouter>
     {/* </Header> */}
       <div>
-        {/* <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a> */}
+
       </div>
         <h1>Keiba Starter</h1>
         <RaceButton></RaceButton>
@@ -94,6 +97,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        {/* <button onClick={ handleRaceClick }>hi hi</button> */}
       </div>
 
       <div>{races}</div>

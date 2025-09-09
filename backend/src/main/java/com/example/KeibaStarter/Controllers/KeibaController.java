@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.KeibaStarter.Models.Horse;
 import com.example.KeibaStarter.Service.HorseService;
 
+@CrossOrigin("http://localhost:5173/")
 @RestController
-@RequestMapping("/hi")
+@RequestMapping("/keiba")
 public class KeibaController {
 
     public final HorseService horseService;

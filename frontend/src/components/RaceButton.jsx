@@ -3,6 +3,19 @@ import Button from 'react-bootstrap/Button'
 import ChooseRacerPage from '../ChooseRacerPage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+const handleCreateRace = async (raceStr) => {
+    fetch('http://localhost:8080/race/createrace/' + raceStr, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+    }).then(() => {
+        console.log('new race added');
+        // Navigate('/races');
+    });
+}
+
 export const RaceButton = () => {
     return (
         <div className="race-button">

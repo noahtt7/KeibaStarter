@@ -32,22 +32,6 @@ function App() {
     })
   }, []);
 
-  const handleCreateRace = async (raceStr) => {
-    fetch('http://localhost:8080/race/createrace/' + raceStr, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      }).then(() => {
-        console.log('new race added');
-      });
-    }
-
-    // const handleRaceClick = () => {
-    //   navigate('/races');
-    // };
-
   return (
     <>
     {/* <Header> */}

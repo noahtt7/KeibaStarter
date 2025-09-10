@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { RaceButton } from './components/RaceButton';
 
 function HomePage() {
     const navigate = useNavigate();

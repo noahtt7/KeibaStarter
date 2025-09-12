@@ -8,8 +8,9 @@
 }
 
 .horse-container {
-  width: 500px;
-  padding: dense;
+  width: 100%;
+  height: 100%;
+  /* padding: dense; */
 }
 
 .logo {

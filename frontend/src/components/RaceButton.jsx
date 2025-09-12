@@ -1,22 +1,28 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 import ChooseRacerPage from '../ChooseRacerPage'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
-const handleCreateRace = async (raceStr) => {
-    fetch('http://localhost:8080/race/createrace/' + raceStr, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-    }).then(() => {
-        console.log('new race added');
-        // Navigate('/races');
-    });
-}
 
 export const RaceButton = () => {
+    const navigate = useNavigate();
+    
+    const handleCreateRace = async (raceStr) => {
+        fetch('http://localhost:8080/race/createrace/' + raceStr, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        }).then(() => {
+            console.log('new race added');
+            navigate('/races');
+            
+        });
+    };
+
     return (
         <div className="race-button">
             <Button variant="primary" onClick={() => handleCreateRace('ak') }>New Race (Arima Kinen)</Button>

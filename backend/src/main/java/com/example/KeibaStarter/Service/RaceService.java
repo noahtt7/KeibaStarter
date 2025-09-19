@@ -100,10 +100,15 @@ public class RaceService {
     }
 
     public boolean isValidRace(long raceId) {
+        raceRepository.count();
         return raceRepository.existsById(raceId);
     }
 
     public boolean isValidRacer(String racerName) {
         return horseRepository.existsById(racerName);
+    }
+
+    public int getNumRaces() {
+        return (int) raceRepository.count();
     }
 }

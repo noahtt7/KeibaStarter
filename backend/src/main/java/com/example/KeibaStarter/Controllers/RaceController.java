@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.KeibaStarter.Service.RaceService;
 
-@CrossOrigin("http://localhost:5173/")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/race")
 public class RaceController {
@@ -39,6 +39,11 @@ public class RaceController {
     @GetMapping("/getwinner/{raceId}")
     public String getWinner(@PathVariable long raceId) {
         return raceService.getWinner(raceId);
+    }
+
+    @GetMapping("/count")
+    public int getNumRaces() {
+        return raceService.getNumRaces();
     }
 
     @PostMapping("/addracer/{raceId}/{racerName}")

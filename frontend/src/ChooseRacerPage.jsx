@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getCount, listHorses } from './services/KeibaService';
+import Button from 'react-bootstrap/Button';
 import './App.css'
 
 const ChooseRacerPage = () => {
@@ -37,6 +38,19 @@ const ChooseRacerPage = () => {
         });
     };
 
+    const simulateRace = async () => {
+        const count = await parseCount();
+        fetch(`http://localhost:8080/race/simulaterace/${count}`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+        }).then (() => {
+            console.log('simulating race' + count);
+        });
+    };
+
     return (
         <div className='horse-container'>
             <h1>Choose Your Racer</h1>
@@ -62,6 +76,9 @@ const ChooseRacerPage = () => {
                     </tr>
                 </tbody>
             </table>
+            <div>
+                <Button variant="primary" onClick={simulateRace}>Simulate Race</Button>
+            </div>
         </div>
     );
 };

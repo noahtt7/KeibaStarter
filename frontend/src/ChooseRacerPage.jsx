@@ -6,6 +6,8 @@ import './App.css'
 const ChooseRacerPage = () => {
     const [horses, setHorses] = useState([]);
 
+    const [winnerText, setWinnerText] = useState(null);
+
     useEffect(() => {
         listHorses().then((response) => {
             setHorses(response.data);
@@ -46,8 +48,20 @@ const ChooseRacerPage = () => {
                 'Accept': 'application/json',
                 'Content-type': 'application/json'
             },
-        }).then (() => {
-            console.log('simulating race' + count);
+        }).then (async () => {
+            // fetch(`http://localhost:8080/race/getwinner/${count}`, {
+            //     method: 'GET',
+            //     headers: {
+            //         'Accept': 'application/json',
+            //         'Content-type': 'application/json'
+            //     },
+            // }).then (() => {
+            //     const winner = await response.json();
+            // });
+            const result = await fetch(`http://localhost:8080/race/getwinner/${count}`);
+            const winner = await result.text();
+            console.log('simulating race' + count +' winner is ' + winner);
+            setWinnerText(winner);
         });
     };
 
@@ -78,6 +92,7 @@ const ChooseRacerPage = () => {
             </table>
             <div>
                 <Button variant="primary" onClick={simulateRace}>Simulate Race</Button>
+                {winnerText && (<p>The winner is {winnerText}</p>)}
             </div>
         </div>
     );

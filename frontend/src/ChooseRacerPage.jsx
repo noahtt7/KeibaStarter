@@ -16,10 +16,6 @@ const ChooseRacerPage = () => {
         })
     })
 
-    const testFunc = async (racerName) => {
-        console.log("yo");
-    }
-
     const parseCount = async () => {
         const result = await fetch('http://localhost:8080/race/count');
         const data = await result.json();
@@ -40,6 +36,13 @@ const ChooseRacerPage = () => {
         });
     };
 
+    function capitalizeName(name) {
+        return name
+            .split(' ') // Split the sentence into an array of words
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+            .join(' '); 
+    }
+
     const simulateRace = async () => {
         const count = await parseCount();
         fetch(`http://localhost:8080/race/simulaterace/${count}`, {
@@ -49,19 +52,11 @@ const ChooseRacerPage = () => {
                 'Content-type': 'application/json'
             },
         }).then (async () => {
-            // fetch(`http://localhost:8080/race/getwinner/${count}`, {
-            //     method: 'GET',
-            //     headers: {
-            //         'Accept': 'application/json',
-            //         'Content-type': 'application/json'
-            //     },
-            // }).then (() => {
-            //     const winner = await response.json();
-            // });
             const result = await fetch(`http://localhost:8080/race/getwinner/${count}`);
-            const winner = await result.text();
-            console.log('simulating race' + count +' winner is ' + winner);
-            setWinnerText(winner);
+            const winner = (await result.text()).replaceAll("-", " ");
+            const winnerName = capitalizeName(winner);
+            console.log('simulating race' + count +' winner is ' + winnerName);
+            setWinnerText(winnerName);
         });
     };
 

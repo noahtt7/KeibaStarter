@@ -13,6 +13,11 @@
   /* padding: dense; */
 }
 
+tr:hover td {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

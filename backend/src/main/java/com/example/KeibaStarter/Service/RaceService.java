@@ -1,5 +1,6 @@
 package com.example.KeibaStarter.Service;
 
+import java.net.http.HttpHeaders;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ import com.example.KeibaStarter.Repository.HorseRepository;
 
 @Service
 public class RaceService {
+
+    //private final RestTemplate restTemplate = new RestTemplate();
+    //private final String PYTHON_URL = "http://localhost:5000/predict";
 
     @Autowired
     RaceRepository raceRepository;
@@ -76,6 +80,31 @@ public class RaceService {
         race.setWinner(winner);
         raceRepository.save(race);//
     }
+
+    // public void dimulateRace(long raceId) {
+    //     Race race = raceRepository.getById(raceId);
+    //     List<String> horses = new ArrayList<>();
+
+    //     for (Horse racer : race.getRacers()) {
+    //         horses.add(racer.getName());
+    //     }
+
+    //     Map<String, Object> payload = new HashMap<>();
+    //     payload.put("horses", horses);
+
+    //     HttpHeaders headers = new HttpHeaders();
+    //     headers.setContentType(MediaType.APPLICATION_JSON);
+
+    //     HttpEntity<Map<String, Object>> entity = new HttpEntity<>(payload, headers);
+
+    //     ResponseEntity<Map> response =
+    //             restTemplate.exchange(PYTHON_URL, HttpMethod.POST, entity, Map.class);
+
+    //     String winner = response.getBody();
+
+    //     race.setWinner(winner);
+    //     raceRepository.save(winner);
+    // }
 
     public String getWinner(long raceId) { 
         Horse winner = raceRepository.getById(raceId).getWinner();

@@ -1,22 +1,32 @@
 package com.example.KeibaStarter.Service;
 
-import java.net.http.HttpHeaders;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 import com.example.KeibaStarter.Models.Horse;
 import com.example.KeibaStarter.Models.Race;
 import com.example.KeibaStarter.Repository.RaceRepository;
 import com.example.KeibaStarter.Repository.HorseRepository;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 public class RaceService {
 
-    //private final RestTemplate restTemplate = new RestTemplate();
-    //private final String PYTHON_URL = "http://localhost:5000/predict";
+    private RestTemplate restTemplate = new RestTemplate();
+    private String PYTHON_URL = "http://localhost:5000/predict";
 
     @Autowired
     RaceRepository raceRepository;
@@ -24,7 +34,9 @@ public class RaceService {
     @Autowired
     HorseRepository horseRepository;
 
+
     public RaceService(RaceRepository raceRepository) {
+        this.restTemplate = restTemplate;
         this.raceRepository = raceRepository;
     }
 
@@ -57,54 +69,55 @@ public class RaceService {
 
     // maybe add horses to races 1 by 1 using their names
 
-    public void simulateRace(long raceId) {
-        Race race = raceRepository.getById(raceId);
-        //raceRepository
-        Random rand = new Random();
-        System.out.println("race repo " + raceRepository.count() + race.length);
-        System.out.println("racer num " + race.getRacers().size());
-
-        // simulate
-        Horse winner = new Horse();
-        int max = 0;
-        for (Horse racer : race.getRacers()) {
-            System.out.println("apt " + Math.abs(race.length - racer.getAptitude()));
-            double performance = 1 + Math.abs(race.length - racer.getAptitude()) + (Math.random() * 5);
-            if (performance >= max) {
-                winner = racer;
-            }
-        }
-
-        //Horse winner = race.getRacers().get(rand.nextInt((int) raceId));
-        //raceRepository.getById(raceRepository.count()).setWinner(winner);
-        race.setWinner(winner);
-        raceRepository.save(race);//
-    }
-
-    // public void dimulateRace(long raceId) {
+    // public void simulateRace(long raceId) {
     //     Race race = raceRepository.getById(raceId);
-    //     List<String> horses = new ArrayList<>();
+    //     //raceRepository
+    //     Random rand = new Random();
+    //     System.out.println("race repo " + raceRepository.count() + race.length);
+    //     System.out.println("racer num " + race.getRacers().size());
 
+    //     // simulate
+    //     Horse winner = new Horse();
+    //     int max = 0;
     //     for (Horse racer : race.getRacers()) {
-    //         horses.add(racer.getName());
+    //         System.out.println("apt " + Math.abs(race.length - racer.getAptitude()));
+    //         double performance = 1 + Math.abs(race.length - racer.getAptitude()) + (Math.random() * 5);
+    //         if (performance >= max) {
+    //             winner = racer;
+    //         }
     //     }
 
-    //     Map<String, Object> payload = new HashMap<>();
-    //     payload.put("horses", horses);
-
-    //     HttpHeaders headers = new HttpHeaders();
-    //     headers.setContentType(MediaType.APPLICATION_JSON);
-
-    //     HttpEntity<Map<String, Object>> entity = new HttpEntity<>(payload, headers);
-
-    //     ResponseEntity<Map> response =
-    //             restTemplate.exchange(PYTHON_URL, HttpMethod.POST, entity, Map.class);
-
-    //     String winner = response.getBody();
-
+    //     //Horse winner = race.getRacers().get(rand.nextInt((int) raceId));
+    //     //raceRepository.getById(raceRepository.count()).setWinner(winner);
     //     race.setWinner(winner);
-    //     raceRepository.save(winner);
+    //     raceRepository.save(race);//
     // }
+
+    public void simulateRace(long raceId) {
+        Race race = raceRepository.getById(raceId);
+        List<String> horses = new ArrayList<>();
+
+        for (Horse racer : race.getRacers()) {
+            horses.add(racer.getName());
+        }
+
+        Map<String, Object> payload = new HashMap<>();
+        payload.put("horses", horses);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(payload, headers);
+
+        ResponseEntity<String> response =
+                restTemplate.exchange(PYTHON_URL, HttpMethod.POST, entity, String.class);
+
+        String winnerName = response.getBody();
+        Horse winner = new Horse(winnerName, true, 0, 0, true);
+
+        race.setWinner(winner);
+        raceRepository.save(race);
+    }
 
     public String getWinner(long raceId) { 
         Horse winner = raceRepository.getById(raceId).getWinner();

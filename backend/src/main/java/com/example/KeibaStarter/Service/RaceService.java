@@ -112,8 +112,20 @@ public class RaceService {
         ResponseEntity<String> response =
                 restTemplate.exchange(PYTHON_URL, HttpMethod.POST, entity, String.class);
 
-        String winnerName = response.getBody();
-        Horse winner = new Horse(winnerName, true, 0, 0, true);
+        String winnerNameResponse = response.getBody();
+
+        // problem was here: it got back the correct string format of winner's name (Kamunyak)
+        // while postgres db uses lowercase + - (croix-du-nord)
+        String winnerName = winnerNameResponse.toLowerCase().replace(" ", "-");
+        System.out.println("THE WINNER ISSSSS " + winnerName);
+        Horse winner = race.getRacers().stream()
+            .filter(horse -> horse.getName().equals(winnerName))
+            .findFirst()
+            .orElse(null);
+
+        // old
+        // String winnerName = response.getBody();
+        // Horse winner = new Horse(winnerName, true, 0, 0, true);
 
         race.setWinner(winner);
         raceRepository.save(race);

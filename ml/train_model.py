@@ -13,11 +13,13 @@ CORS(app)
 @app.route("/predict", methods=["POST"])
 def predict():
     data = request.get_json()
-    selected_horses = data["horses"]
+    horses = data["horses"]
+    selected_horses = [horse.replace('-', ' ').title() for horse in horses]
+    print(f"Received horses: {selected_horses}")
 
     keiba_file_path = 'ml/keibasheet.csv'
     keiba_data = pd.read_csv(keiba_file_path)
-    print(keiba_data.describe())
+    #print(keiba_data.describe())
 
     keiba_columns = ['race_name', 'horse_name', 'surface', 'distance']
 

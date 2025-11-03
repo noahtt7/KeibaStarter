@@ -2,6 +2,8 @@ package com.example.KeibaStarter.Service;
 
 import java.util.Random;
 
+import javax.management.RuntimeErrorException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -94,15 +96,19 @@ public class RaceService {
     // }
 
     public void simulateRace(long raceId) {
-        Race race = raceRepository.getById(raceId);
+        Race race = raceRepository.findById(raceId)
+            .orElseThrow(() -> new RuntimeException("race not found"));
         List<String> horses = new ArrayList<>();
 
         for (Horse racer : race.getRacers()) {
             horses.add(racer.getName());
         }
 
+        int distance = race.getDistance();
+
         Map<String, Object> payload = new HashMap<>();
         payload.put("horses", horses);
+        payload.put("distance", distance);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -127,8 +133,11 @@ public class RaceService {
         // String winnerName = response.getBody();
         // Horse winner = new Horse(winnerName, true, 0, 0, true);
 
-        race.setWinner(winner);
-        raceRepository.save(race);
+        if (winner != null) {
+            race.setWinner(winner);
+            raceRepository.save(race);
+            raceRepository.flush();
+        }
     }
 
     public String getWinner(long raceId) { 

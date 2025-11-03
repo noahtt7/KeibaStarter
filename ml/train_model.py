@@ -14,6 +14,7 @@ CORS(app)
 def predict():
     data = request.get_json()
     horses = data["horses"]
+    distance = data["distance"]
     selected_horses = [horse.replace('-', ' ').title() for horse in horses]
     print(f"Received horses: {selected_horses}")
 
@@ -40,7 +41,7 @@ def predict():
         .groupby("horse_name", as_index=False)[["distance", "age", "odds"]]
         .mean()
     )
-    race_df["distance"] = 2400 #fixed distance
+    race_df["distance"] = distance
     #race_df = keiba_data[keiba_data["horse_name"].isin(selected_horses)].copy()
     X_race = race_df[["distance", "age", "odds"]]
 

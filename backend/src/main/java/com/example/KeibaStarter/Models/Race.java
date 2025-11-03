@@ -63,4 +63,8 @@ public class Race {
         return this.winner;
     }
 
+    public Integer getDistance() {
+        return this.length;
+    }
+
 }

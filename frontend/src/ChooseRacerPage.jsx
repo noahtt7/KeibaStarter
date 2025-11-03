@@ -14,7 +14,7 @@ const ChooseRacerPage = () => {
         }).catch(error =>  {
             console.error(error);
         })
-    })
+    }, [])
 
     const parseCount = async () => {
         const result = await fetch('http://localhost:8080/race/count');
@@ -74,7 +74,7 @@ const ChooseRacerPage = () => {
                 <tbody>
                     {
                         horses.map(horse =>
-                            <tr key={horse.name} onClick={() => addRacer(horse.name)}>
+                            <tr key={horse} onClick={() => addRacer(horse.name)}>
                                 <td>{horse.name}</td>
                                 <td>{horse.age}</td>
                             </tr>

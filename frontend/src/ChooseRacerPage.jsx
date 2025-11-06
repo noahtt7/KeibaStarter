@@ -43,6 +43,14 @@ const ChooseRacerPage = () => {
             .join(' '); 
     }
 
+    function normalizeName(name) {
+        return name
+                .replaceAll("-", " ")
+                .split(" ")
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
+    }
+
     const simulateRace = async () => {
         const count = await parseCount();
         fetch(`http://localhost:8080/race/simulaterace/${count}`, {
@@ -75,7 +83,7 @@ const ChooseRacerPage = () => {
                     {
                         horses.map(horse =>
                             <tr key={horse} onClick={() => addRacer(horse.name)}>
-                                <td>{horse.name}</td>
+                                <td>{normalizeName(horse.name)}</td>
                                 <td>{horse.age}</td>
                             </tr>
                         )

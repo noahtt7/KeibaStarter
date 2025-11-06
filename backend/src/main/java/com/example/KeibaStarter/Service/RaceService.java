@@ -52,6 +52,8 @@ public class RaceService {
             race  = new Race(2400);
         } else if (raceName.equals("ks")) {
             race = new Race(3000);
+        } else if (raceName.equals("yk")) {
+            race = new Race(1600);
         }
 
         System.out.println("racer");

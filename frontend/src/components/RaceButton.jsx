@@ -25,10 +25,20 @@ export const RaceButton = () => {
 
     return (
         <div className="race-button">
-            <Button variant="primary" onClick={() => handleCreateRace('ak') }>New Race (Arima Kinen)</Button>
-            <Button variant="primary" onClick={() => handleCreateRace('tk') }>New Race (Takarazuka Kinen)</Button>
-            <Button variant="primary" onClick={() => handleCreateRace("jd") }>New Race (Japan Derby)</Button>
-            <Button variant="primary" onClick={() => handleCreateRace('ks') }>New Race (Kikka Sho)</Button>
+            <Button variant="primary" onClick={() => handleCreateRace('ak') }>Arima Kinen (Nakayama 2500m)</Button>
+            <Button variant="primary" onClick={() => handleCreateRace('tk') }>Takarazuka Kinen (Hanshin 2200m)</Button>
+            <Button variant="primary" onClick={() => handleCreateRace("jd") }>Japan Derby (Tokyo 2400m)</Button>
+            <Button variant="primary" onClick={() => handleCreateRace('ks') }>Kikka Sho (Kyoto 3000m)</Button>
+
+            <Button variant="primary" onClick={() => handleCreateRace('fs') }>February Stakes (Tokyo 1600m)</Button>
+            <Button variant="primary" onClick={() => handleCreateRace('tm') }>Takamatsunomiya Kinen (Chukyo 1200m)</Button>
+            <Button variant="primary" onClick={() => handleCreateRace('ks') }>Osaka Cup (Hanshin 2000m)</Button>
+            <Button variant="primary" onClick={() => handleCreateRace('nhk') }>NHK Mile Cup (Tokyo 1600m)</Button>
+            <Button variant="primary" onClick={() => handleCreateRace('vm') }>Victoria Mile (Kyoto 3000m)</Button>
+            <Button variant="primary" onClick={() => handleCreateRace('yk') }>Yasuda Kinen (Tokyo 1600m)</Button>
+            <Button variant="primary" onClick={() => handleCreateRace('ht') }>Spring Tenno Sho (Kyoto 3200m)</Button>
+            <Button variant="primary" onClick={() => handleCreateRace('at') }>Fall Tenno Sho (Tokyo 2000m)</Button>
+            <Button variant="primary" onClick={() => handleCreateRace('jc') }>Japan Cup (Tokyo 2400m)</Button>
         </div>
     )
 }

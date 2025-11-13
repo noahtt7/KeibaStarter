@@ -14,7 +14,7 @@ const ChooseRacerPage = () => {
         }).catch(error =>  {
             console.error(error);
         })
-    })
+    }, [])
 
     const parseCount = async () => {
         const result = await fetch('http://localhost:8080/race/count');
@@ -41,6 +41,14 @@ const ChooseRacerPage = () => {
             .split(' ') // Split the sentence into an array of words
             .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
             .join(' '); 
+    }
+
+    function normalizeName(name) {
+        return name
+                .replaceAll("-", " ")
+                .split(" ")
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
     }
 
     const simulateRace = async () => {
@@ -74,8 +82,8 @@ const ChooseRacerPage = () => {
                 <tbody>
                     {
                         horses.map(horse =>
-                            <tr key={horse.name} onClick={() => addRacer(horse.name)}>
-                                <td>{horse.name}</td>
+                            <tr key={horse} onClick={() => addRacer(horse.name)}>
+                                <td>{normalizeName(horse.name)}</td>
                                 <td>{horse.age}</td>
                             </tr>
                         )

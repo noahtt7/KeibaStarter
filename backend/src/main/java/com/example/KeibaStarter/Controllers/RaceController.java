@@ -36,6 +36,13 @@ public class RaceController {
         raceService.simulateRace(raceId);
     }
 
+    // @GetMapping("/simulaterace")
+    // public Object simulateRace() {
+    //     String mlServiceUrl = "http://localhost:5000/predict";
+
+    //     List<String> horses = Array
+    // }
+
     @GetMapping("/getwinner/{raceId}")
     public String getWinner(@PathVariable long raceId) {
         return raceService.getWinner(raceId);

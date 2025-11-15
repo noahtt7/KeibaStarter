@@ -10,5 +10,16 @@ services:
       - "5432:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
+
+    python-ml:
+      build:
+        context: ./ml  # Path to your Python code folder
+        dockerfile: Dockerfile
+      ports:
+        - "5000:5000"
+      volumes:
+        - ./ml:/app  # Mount your Python code
+      command: python train_model.py
+      
 volumes:
   pg_data:

@@ -57,8 +57,7 @@ function HomePage() {
                     <a className="navbar=brand" href="#">Netkeiba</a>
                 </Container>
             </NavBar>
-            <h3> home</h3>
-            <button onClick={handleRaceClick}>Simulate a race</button>
+            {/* <button onClick={handleRaceClick}>Simulate a race</button> */}
 
             
             <h1>Keiba Starter</h1>

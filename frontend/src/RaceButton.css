@@ -1,0 +1,185 @@
+/* RaceButton.css - Full Modern Design */
+
+/* Page wrapper with dark gradient background */
+.keiba-page {
+    width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #303f57 0%, #2c3c62 100%);
+    /*background: linear-gradient(135deg, #303f57 0%, #2c3c62 100%);*/
+}
+
+/* Navbar styling */
+.keiba-navbar {
+    background: rgba(15, 23, 42, 0.95) !important; /* Darker background */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.keiba-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.keiba-nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px;
+}
+
+.keiba-nav-link:hover {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.netkeiba-link {
+    color: #22d3ee !important;
+    font-weight: 500;
+}
+
+.netkeiba-link:hover {
+    color: #06b6d4 !important;
+}
+
+/* Main content area */
+.race-selector-wrapper {
+    padding: 3rem 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.hero-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+}
+
+/* Race card styling */
+.race-card {
+    position: relative;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    border: none;
+    color: white;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.race-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.race-card:hover::before {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.race-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.race-card.selected {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8), 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.race-card-content {
+    position: relative;
+    z-index: 2;
+}
+
+.race-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.race-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.race-distance {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* Gradient backgrounds for each race */
+.race-card-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.race-card-2 { background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%); }
+.race-card-3 { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+.race-card-4 { background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%); }
+.race-card-5 { background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%); }
+.race-card-6 { background: linear-gradient(135deg, #f857a6 0%, #ff5858 100%); }
+.race-card-7 { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
+.race-card-8 { background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); }
+.race-card-9 { background: linear-gradient(135deg, #d53369 0%, #daae51 100%); }
+.race-card-10 { background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%); }
+.race-card-11 { background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%); }
+.race-card-12 { background: linear-gradient(135deg, #f2994a 0%, #f2c94c 100%); }
+.race-card-13 { background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%); }
+
+/* Shine effect on hover */
+.race-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: rotate(45deg) translateX(-100%);
+    transition: transform 0.6s ease;
+    z-index: 3;
+}
+
+.race-card:hover::after {
+    transform: rotate(45deg) translateX(100%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .race-card {
+        height: 130px;
+    }
+    
+    .race-name {
+        font-size: 1.1rem;
+    }
+}

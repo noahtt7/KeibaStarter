@@ -8,6 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react'
 import { listRaces } from './services/KeibaService'
+import './RaceButton.css';
 
 function HomePage() {
     const navigate = useNavigate();
@@ -28,39 +29,27 @@ function HomePage() {
 
     return (
         <div>
-            <NavBar expand="lg" className='navbar navbar-dark bg-dark'>
-        <Container>
-          <NavBar.Brand href="#home">Keiba Simulator</NavBar.Brand>
-          <NavBar.Toggle aria-controls="basic-navbar-nav" />
-
-          <NavBar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Horses</Nav.Link>
-            <Nav.Link href="#link">Race History</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Button className="bg-white text-dark">Login</Button>
-        </NavBar.Collapse>
-
-                    {/* <Navbar.Brand href="#home">Test ting</Navbar.Brand> */}
-                    <a className="navbar=brand" href="#">Netkeiba</a>
+        <NavBar expand="lg" className="keiba-navbar sticky-top">
+                <Container fluid>
+                    <NavBar.Brand href="#" className="keiba-brand">Keiba Simulator</NavBar.Brand>
+                    <NavBar.Toggle aria-controls="basic-navbar-nav" />
+                    <NavBar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link href="#" className="keiba-nav-link">Home</Nav.Link>
+                            <Nav.Link href="#" className="keiba-nav-link">Horses</Nav.Link>
+                            <Nav.Link href="#" className="keiba-nav-link">Race History</Nav.Link>
+                            <Nav.Link href="#" className="keiba-nav-link">Dropdown</Nav.Link>
+                        </Nav>
+                        <div className="d-flex align-items-center gap-3">
+                            <Button variant="light">Login</Button>
+                            <a href="#" className="netkeiba-link text-decoration-none">Netkeiba</a>
+                        </div>
+                    </NavBar.Collapse>
                 </Container>
             </NavBar>
-            {/* <button onClick={handleRaceClick}>Simulate a race</button> */}
 
             
-            <h1>Keiba Starter</h1>
+            {/* <h1>Keiba Starter</h1> */}
             {/* <BrowserRouter> */}
                 <RaceButton></RaceButton>
             {/* </BrowserRouter> */}

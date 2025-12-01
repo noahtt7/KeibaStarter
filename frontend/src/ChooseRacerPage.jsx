@@ -92,7 +92,7 @@ const ChooseRacerPage = () => {
                     </NavBar.Collapse>
                 </Container>
             </NavBar>
-            <h1>Choose Your Racer</h1>
+            <h1 className="hero-title">Choose Your Racers</h1>
             {/* Add racer selection UI here */}
             <table className='table table-hover table-dark table-striped table-bordered'>
                 <thead>

@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, BrowserRouter, Route, Router, Routes } from 'react-router-dom'
 import { getCount, listHorses } from './services/KeibaService';
-import Button from 'react-bootstrap/Button';
-import Nav from 'react-bootstrap/Nav'
-import NavBar from 'react-bootstrap/NavBar'
-import Container from 'react-bootstrap/Container';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import './App.css'
 
 const ChooseRacerPage = () => {
@@ -74,11 +71,11 @@ const ChooseRacerPage = () => {
 
     return (
         <div className='keiba-page'>
-            <NavBar expand="lg" className="keiba-navbar sticky-top">
+            <Navbar expand="lg" className="keiba-navbar sticky-top">
                 <Container fluid>
-                    <NavBar.Brand href="#" className="keiba-brand">Keiba Simulator</NavBar.Brand>
-                    <NavBar.Toggle aria-controls="basic-navbar-nav" />
-                    <NavBar.Collapse id="basic-navbar-nav">
+                    <Navbar.Brand href="#" className="keiba-brand">Keiba Simulator</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="#" className="keiba-nav-link">Home</Nav.Link>
                             <Nav.Link href="#" className="keiba-nav-link">Horses</Nav.Link>
@@ -89,9 +86,9 @@ const ChooseRacerPage = () => {
                             <Button variant="light">Login</Button>
                             <a href="#" className="netkeiba-link text-decoration-none">Netkeiba</a>
                         </div>
-                    </NavBar.Collapse>
+                    </Navbar.Collapse>
                 </Container>
-            </NavBar>
+            </Navbar>
             <h1 className="hero-title">Choose Your Racers</h1>
             {/* Add racer selection UI here */}
             <table className='table table-hover table-dark table-striped table-bordered'>
@@ -116,7 +113,7 @@ const ChooseRacerPage = () => {
                 </tbody>
             </table>
             <div>
-                <Button variant="info" class="btn btn-light btn-lg btn-block" onClick={simulateRace}>Simulate Race</Button>
+                <Button variant="info" className="btn btn-light btn-lg btn-block" onClick={simulateRace}>Simulate Race</Button>
                 {winnerText && (<h3 className="hero-subtitle">The winner is {winnerText}</h3>)}
             </div>
         </div>

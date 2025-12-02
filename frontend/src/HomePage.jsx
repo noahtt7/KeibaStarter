@@ -1,11 +1,7 @@
 import React from 'react'
 import { useNavigate, BrowserRouter, Route, Router, Routes } from 'react-router-dom'
 import { RaceButton } from './components/RaceButton';
-import Nav from 'react-bootstrap/Nav'
-import NavBar from 'react-bootstrap/NavBar'
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react'
 import { listRaces } from './services/KeibaService'
 import './RaceButton.css';
@@ -29,11 +25,11 @@ function HomePage() {
 
     return (
         <div>
-        <NavBar expand="lg" className="keiba-navbar sticky-top">
+        <Navbar expand="lg" className="keiba-navbar sticky-top">
                 <Container fluid>
-                    <NavBar.Brand href="#" className="keiba-brand">Keiba Simulator</NavBar.Brand>
-                    <NavBar.Toggle aria-controls="basic-navbar-nav" />
-                    <NavBar.Collapse id="basic-navbar-nav">
+                    <Navbar.Brand href="#" className="keiba-brand">Keiba Simulator</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="#" className="keiba-nav-link">Home</Nav.Link>
                             <Nav.Link href="#" className="keiba-nav-link">Horses</Nav.Link>
@@ -44,9 +40,9 @@ function HomePage() {
                             <Button variant="light">Login</Button>
                             <a href="#" className="netkeiba-link text-decoration-none">Netkeiba</a>
                         </div>
-                    </NavBar.Collapse>
+                    </Navbar.Collapse>
                 </Container>
-            </NavBar>
+            </Navbar>
 
             
             {/* <h1>Keiba Starter</h1> */}

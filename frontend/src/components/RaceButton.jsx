@@ -24,7 +24,7 @@ export const RaceButton = () => {
     ];
 
     const handleCreateRace = async (raceStr) => {
-        fetch('http://localhost:8080/race/createrace/' + raceStr, {
+        fetch('https://keibabackend.onrender.com/race/createrace/' + raceStr, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

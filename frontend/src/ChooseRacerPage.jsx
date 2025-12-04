@@ -18,7 +18,7 @@ const ChooseRacerPage = () => {
     }, [])
 
     const parseCount = async () => {
-        const result = await fetch('http://localhost:8080/race/count');
+        const result = await fetch('https://keibabackend.onrender.com/race/count');
         const data = await result.json();
         return data;
     };
@@ -26,7 +26,7 @@ const ChooseRacerPage = () => {
     const addRacer = async (racerName) => {
         const count = await parseCount();
         // console.log(count);
-        fetch(`http://localhost:8080/race/addracer/${count}/${racerName}`, {
+        fetch(`https://keibabackend.onrender.com/race/addracer/${count}/${racerName}`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -54,14 +54,14 @@ const ChooseRacerPage = () => {
 
     const simulateRace = async () => {
         const count = await parseCount();
-        fetch(`http://localhost:8080/race/simulaterace/${count}`, {
+        fetch(`https://keibabackend.onrender.com/race/simulaterace/${count}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
                 'Content-type': 'application/json'
             },
         }).then (async () => {
-            const result = await fetch(`http://localhost:8080/race/getwinner/${count}`);
+            const result = await fetch(`https://keibabackend.onrender.com/race/getwinner/${count}`);
             const winner = (await result.text()).replaceAll("-", " ");
             const winnerName = capitalizeName(winner);
             console.log('simulating race' + count +' winner is ' + winnerName);

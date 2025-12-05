@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.KeibaStarter.Service.RaceService;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin("https://keibastarter.onrender.com")
 @RestController
 @RequestMapping("/race")
 public class RaceController {

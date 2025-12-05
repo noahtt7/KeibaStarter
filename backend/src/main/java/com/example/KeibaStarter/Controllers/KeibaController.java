@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.example.KeibaStarter.Models.Horse;
 import com.example.KeibaStarter.Service.HorseService;
 
-@CrossOrigin("http://localhost:5173/")
+@CrossOrigin("https://keibastarter.onrender.com")
 @RestController
 @RequestMapping("/keiba")
 public class KeibaController {

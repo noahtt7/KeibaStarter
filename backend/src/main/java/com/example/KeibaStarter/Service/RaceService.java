@@ -28,7 +28,7 @@ import org.springframework.web.client.RestTemplate;
 public class RaceService {
 
     private RestTemplate restTemplate = new RestTemplate();
-    private String PYTHON_URL = "http://localhost:5000/predict";
+    private String PYTHON_URL = "https://keibaml.onrender.com/predict";
 
     @Autowired
     RaceRepository raceRepository;

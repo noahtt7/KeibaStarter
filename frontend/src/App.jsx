@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { listRaces } from './services/KeibaService'
+//import { listRaces } from './services/KeibaService'
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChooseRacerPage from './ChooseRacerPage';
@@ -12,13 +12,13 @@ function App() {
   const [races, setRaces] = useState('')
   const [message, setMessage] = useState('')
 
-  useEffect(() => {
-    listRaces().then((response) => {
-      setRaces(response.data);
-    }).catch(error => {
-      console.error(error);
-    })
-  }, []);
+  // useEffect(() => {
+  //   listRaces().then((response) => {
+  //     setRaces(response.data);
+  //   }).catch(error => {
+  //     console.error(error);
+  //   })
+  // }, []);
 
   return (
       <BrowserRouter>

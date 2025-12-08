@@ -3,7 +3,7 @@ import { useNavigate, BrowserRouter, Route, Router, Routes } from 'react-router-
 import { RaceButton } from './components/RaceButton';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react'
-import { listRaces } from './services/KeibaService'
+//import { listRaces } from './services/KeibaService'
 import './RaceButton.css';
 
 function HomePage() {
@@ -11,13 +11,13 @@ function HomePage() {
 
     const [races, setRaces] = useState('')
     
-    useEffect(() => {
-    listRaces().then((response) => {
-        setRaces(response.data);
-    }).catch(error => {
-        console.error(error);
-    })
-    }, []);
+    // useEffect(() => {
+    // listRaces().then((response) => {
+    //     setRaces(response.data);
+    // }).catch(error => {
+    //     console.error(error);
+    // })
+    // }, []);
 
     const handleRaceClick = () => {
       navigate('/races');

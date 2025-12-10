@@ -18,7 +18,7 @@ def predict():
     selected_horses = [horse.replace('-', ' ').title() for horse in horses]
     print(f"Received horses: {selected_horses}")
 
-    keiba_file_path = 'ml/keibasheet.csv'
+    keiba_file_path = 'keibasheet.csv'
     keiba_data = pd.read_csv(keiba_file_path)
     #print(keiba_data.describe())
 

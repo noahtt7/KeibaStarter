@@ -10,6 +10,7 @@ import jakarta.persistence.ManyToOne;
 import lombok.Setter;
 
 @Entity
+@Table(name = "horses")
 public class Horse {
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

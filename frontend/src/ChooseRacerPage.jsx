@@ -54,14 +54,14 @@ const ChooseRacerPage = () => {
 
     const simulateRace = async () => {
         const count = await parseCount();
-        fetch(`https://keibabackend.onrender.com/race/simulaterace/${count}`, {
+        fetch(`https://keibabackend.onrender.com/race/simulaterace/${count+3}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
                 'Content-type': 'application/json'
             },
         }).then (async () => {
-            const result = await fetch(`https://keibabackend.onrender.com/race/getwinner/${count}`);
+            const result = await fetch(`https://keibabackend.onrender.com/race/getwinner/${count+3}`);
             const winner = (await result.text()).replaceAll("-", " ");
             const winnerName = capitalizeName(winner);
             console.log('simulating race' + count +' winner is ' + winnerName);

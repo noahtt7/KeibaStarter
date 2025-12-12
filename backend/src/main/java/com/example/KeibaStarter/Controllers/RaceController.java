@@ -55,6 +55,7 @@ public class RaceController {
 
     @PostMapping("/addracer/{raceId}/{racerName}")
     public void addRacer(@PathVariable long raceId, @PathVariable String racerName) {
+        System.out.println("racerId: "+raceId+" racerName: "+racerName);
         if (!raceService.isValidRace(raceId) || !raceService.isValidRacer(racerName)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }

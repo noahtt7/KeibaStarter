@@ -16,6 +16,7 @@ def predict():
     horses = data["horses"]
     distance = data["distance"]
     selected_horses = [horse.replace('-', ' ').title() for horse in horses]
+    print(f"Testing text")
     print(f"Received horses: {selected_horses}")
 
     keiba_file_path = 'keibasheet.csv'

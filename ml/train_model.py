@@ -6,17 +6,23 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 CORS(app)
 
 @app.route("/predict", methods=["POST"])
 def predict():
+    logger.info("---- inside function-----")
     data = request.get_json()
     horses = data["horses"]
     distance = data["distance"]
     selected_horses = [horse.replace('-', ' ').title() for horse in horses]
     print(f"Testing text")
+    logger.info(f"Received horses: {selected_horses}")
     print(f"Received horses: {selected_horses}")
 
     keiba_file_path = 'keibasheet.csv'

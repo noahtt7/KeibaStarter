@@ -54,7 +54,23 @@ public class RaceService {
             race = new Race(3000);
         } else if (raceName.equals("yk")) {
             race = new Race(1600);
-        }
+        } else if (raceName.equals("fs")) {
+            race = new Race(1600);
+        } else if (raceName.equals("tmk")) {
+            race = new Race(1200);
+        } else if (raceName.equals("oc")) {
+            race = new Race(2000);
+        } else if (raceName.equals("nhk")) {
+            race = new Race(1600);
+        } else if (raceName.equals("vm")) {
+            race = new Race(1600);
+        } else if (raceName.equals("ht")) {
+            race = new Race(3200);
+        } else if (raceName.equals("at")) {
+            race = new Race(2000);
+        } else if (raceName.equals("jc")) {
+            race = new Race(2400);
+        } 
 
         System.out.println("racer");
         System.out.println(race.getRacers());

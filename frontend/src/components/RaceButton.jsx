@@ -13,7 +13,7 @@ export const RaceButton = () => {
         { id: 'jd', name: 'Japan Derby', track: 'Tokyo', distance: '2400m', gradient: 3 },
         { id: 'ks', name: 'Kikka Sho', track: 'Kyoto', distance: '3000m', gradient: 4 },
         { id: 'fs', name: 'February Stakes', track: 'Tokyo', distance: '1600m', gradient: 5 },
-        { id: 'tm', name: 'Takamatsunomiya Kinen', track: 'Chukyo', distance: '1200m', gradient: 6 },
+        { id: 'tmk', name: 'Takamatsunomiya Kinen', track: 'Chukyo', distance: '1200m', gradient: 6 },
         { id: 'oc', name: 'Osaka Cup', track: 'Hanshin', distance: '2000m', gradient: 7 },
         { id: 'nhk', name: 'NHK Mile Cup', track: 'Tokyo', distance: '1600m', gradient: 8 },
         { id: 'vm', name: 'Victoria Mile', track: 'Kyoto', distance: '1600m', gradient: 9 },

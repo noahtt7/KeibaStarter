@@ -55,10 +55,11 @@ public class RaceController {
 
     @PostMapping("/addracer/{raceId}/{racerName}")
     public void addRacer(@PathVariable long raceId, @PathVariable String racerName) {
-        System.out.println("racerId: "+raceId+" racerName: "+racerName);
-        if (!raceService.isValidRace(raceId) || !raceService.isValidRacer(racerName)) {
+        //System.out.println("racerId: "+raceId+" racerName: "+racerName);
+        //+3 to racerId to sync with db
+        if (!raceService.isValidRace(raceId+3) || !raceService.isValidRacer(racerName)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-        raceService.addRacer(raceId, racerName);
+        raceService.addRacer(raceId+3, racerName);
     }
 }

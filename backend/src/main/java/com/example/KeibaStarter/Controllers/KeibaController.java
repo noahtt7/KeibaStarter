@@ -49,4 +49,9 @@ public class KeibaController {
     public void deleteHorse(@PathVariable String name) {
         horseService.deleteHorse(name);
     }
+
+    @GetMapping("/health")
+    public String health() {
+        return "OK";
+    }
 }

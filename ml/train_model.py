@@ -69,5 +69,9 @@ def predict():
     # print(f"🏆 Winner: {winner['horse_name']} (Prob: {winner['odds']:.2f})")
     # In RaceService, simulateRace pass in horse names
 
+@app.route("/health")
+def health():
+    return 'OK'
+
 if __name__ == "__main__":
     app.run("0.0.0.0", port=5000)

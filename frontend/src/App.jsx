@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChooseRacerPage from './ChooseRacerPage';
 import HomePage from './HomePage';
+import HorsePage from './HorsesPage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path='/' element = { <HomePage/> }/>
           <Route path='/races' element = { <ChooseRacerPage/> }/>
+          <Route path='/horses' element = { <HorsePage/> }/>
         </Routes>
       </BrowserRouter>
   )

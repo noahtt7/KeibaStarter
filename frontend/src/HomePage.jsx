@@ -32,13 +32,13 @@ function HomePage() {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="#" className="keiba-nav-link">Home</Nav.Link>
-                            <Nav.Link href="#" className="keiba-nav-link">Horses</Nav.Link>
+                            <Nav.Link href="/horses" className="keiba-nav-link">Horses</Nav.Link>
                             <Nav.Link href="#" className="keiba-nav-link">Race History</Nav.Link>
                             <Nav.Link href="#" className="keiba-nav-link">Dropdown</Nav.Link>
                         </Nav>
                         <div className="d-flex align-items-center gap-3">
                             <Button variant="light">Login</Button>
-                            <a href="#" className="netkeiba-link text-decoration-none">Netkeiba</a>
+                            <a href="https://en.netkeiba.com/" className="netkeiba-link text-decoration-none">Netkeiba</a>
                         </div>
                     </Navbar.Collapse>
                 </Container>

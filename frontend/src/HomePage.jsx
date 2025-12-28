@@ -23,6 +23,10 @@ function HomePage() {
       navigate('/races');
     };
 
+    const handleHorsesClick = () => {
+        navigate('/horses');
+    };
+
     return (
         <div>
         <Navbar expand="lg" className="keiba-navbar sticky-top">
@@ -32,7 +36,7 @@ function HomePage() {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="#" className="keiba-nav-link">Home</Nav.Link>
-                            <Nav.Link href="/horses" className="keiba-nav-link">Horses</Nav.Link>
+                            <Nav.Link onClick={() => handleHorsesClick()} href="/horses" className="keiba-nav-link">Horses</Nav.Link>
                             <Nav.Link href="#" className="keiba-nav-link">Race History</Nav.Link>
                             <Nav.Link href="#" className="keiba-nav-link">Dropdown</Nav.Link>
                         </Nav>

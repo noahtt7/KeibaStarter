@@ -33,3 +33,5 @@ const HorsesPage = () => {
         </div>
     );
 };
+
+export default HorsesPage;

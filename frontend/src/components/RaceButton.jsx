@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Navbar, Nav, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import '../RaceButton.css'; // Create this file with the CSS below
+import '../RaceButton.css';
 
 export const RaceButton = () => {
     const navigate = useNavigate();

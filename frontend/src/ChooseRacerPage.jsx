@@ -62,7 +62,12 @@ const ChooseRacerPage = () => {
             },
         }).then (async () => {
             const result = await fetch(`https://keibabackend.onrender.com/race/getwinner/${count+3}`);
-            const winner = (await result.text()).replaceAll("-", " ");
+            console.log('await result is ' + result);
+            if (result === null) {
+                const winner = "null";
+            } else {
+                const winner = (await result.text()).replaceAll("-", " ");
+            }
             const winnerName = capitalizeName(winner);
             console.log('simulating race' + count +' winner is ' + winnerName);
             setWinnerText(winnerName);

@@ -7,6 +7,14 @@ import './App.css'
 const HorsesPage = () => {
     const [horses, setHorses] = useState([]);
 
+    useEffect(() => {
+        listHorses().then((response) => {
+            setHorses(response.data);
+        }).catch(error => {
+            console.error(error);
+        })
+    }, [])
+
     return(
         <div className="keiba-page">
             <table className='table table-hover table-dark table-striped table-bordered'>

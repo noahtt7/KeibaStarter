@@ -161,7 +161,11 @@ public class RaceService {
     }
 
     public String getWinner(long raceId) { 
+        if (raceRepository.findById(raceId).get() == null) {
+            return null;
+        }
         Horse winner = raceRepository.getById(raceId).getWinner();
+        if (winner == null) return null;
         return winner.getName();
     }
 

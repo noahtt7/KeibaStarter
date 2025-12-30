@@ -45,9 +45,9 @@ public class RaceController {
 
     @GetMapping("/getwinner/{raceId}")
     public String getWinner(@PathVariable long raceId) {
-        if (raceService.findById(raceId) == null) {
-            return null;
-        }
+        // if (raceService.findById(raceId) == null) {
+        //     return null;
+        // }
         return raceService.getWinner(raceId);
     }
 

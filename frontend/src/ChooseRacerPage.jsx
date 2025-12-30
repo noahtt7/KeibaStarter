@@ -7,7 +7,7 @@ import './App.css'
 const ChooseRacerPage = () => {
     const [horses, setHorses] = useState([]);
 
-    const [winnerText, setWinnerText] = useState(null);
+    const [winnerText, setWinnerText] = useState("Select horses to race!");
 
     useEffect(() => {
         listHorses().then((response) => {

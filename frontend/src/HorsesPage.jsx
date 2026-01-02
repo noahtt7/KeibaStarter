@@ -15,6 +15,14 @@ const HorsesPage = () => {
         })
     }, [])
 
+    function normalizeName(name) {
+        return name
+                .replaceAll("-", " ")
+                .split(" ")
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
+    }
+
     return(
         <div className="keiba-page">
             <table className='table table-hover table-dark table-striped table-bordered'>

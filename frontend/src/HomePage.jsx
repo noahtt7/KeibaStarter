@@ -52,6 +52,7 @@ function HomePage() {
             {/* <h1>Keiba Starter</h1> */}
             {/* <BrowserRouter> */}
                 <RaceButton></RaceButton>
+                <Button onClick={() => handleHorsesClick()}>Horses</Button>
             {/* </BrowserRouter> */}
 
             <div>{races}</div>

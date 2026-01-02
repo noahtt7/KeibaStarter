@@ -36,7 +36,7 @@ function HomePage() {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="#" className="keiba-nav-link">Home</Nav.Link>
-                            <Nav.Link onClick={() => handleHorsesClick()} href="/horses" className="keiba-nav-link">Horses</Nav.Link>
+                            <Nav.Link onClick={() => handleHorsesClick()} className="keiba-nav-link">Horses</Nav.Link>
                             <Nav.Link href="#" className="keiba-nav-link">Race History</Nav.Link>
                             <Nav.Link href="#" className="keiba-nav-link">Dropdown</Nav.Link>
                         </Nav>

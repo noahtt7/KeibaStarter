@@ -41,7 +41,7 @@ function HomePage() {
                             <Nav.Link href="#" className="keiba-nav-link">Dropdown</Nav.Link>
                         </Nav>
                         <div className="d-flex align-items-center gap-3">
-                            <Button variant="light">Login</Button>
+                            {/* <Button variant="light">Login</Button> */}
                             <a href="https://en.netkeiba.com/" className="netkeiba-link text-decoration-none">Netkeiba</a>
                         </div>
                     </Navbar.Collapse>

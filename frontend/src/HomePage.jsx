@@ -37,8 +37,6 @@ function HomePage() {
                         <Nav className="me-auto">
                             <Nav.Link href="#" className="keiba-nav-link">Home</Nav.Link>
                             <Nav.Link onClick={() => handleHorsesClick()} className="keiba-nav-link">Horses</Nav.Link>
-                            <Nav.Link href="#" className="keiba-nav-link">Race History</Nav.Link>
-                            <Nav.Link href="#" className="keiba-nav-link">Dropdown</Nav.Link>
                         </Nav>
                         <div className="d-flex align-items-center gap-3">
                             {/* <Button variant="light">Login</Button> */}
@@ -51,8 +49,7 @@ function HomePage() {
             
             {/* <h1>Keiba Starter</h1> */}
             {/* <BrowserRouter> */}
-                <RaceButton></RaceButton>
-                <Button onClick={() => handleHorsesClick()}>Horses</Button>
+            <RaceButton></RaceButton>
             {/* </BrowserRouter> */}
 
             <div>{races}</div>

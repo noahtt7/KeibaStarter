@@ -1,16 +1,17 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   height: 100vh; 
-  width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
+  /* width: 100%; */
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
 .horse-container {
-  width: 100%;
-  height: 100%;
-  /* padding: dense; */
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 tr:hover td {
@@ -33,6 +34,11 @@ tr:hover td {
 .navbar {
   flex: 1;
   background-color:#61dafbaa
+}
+
+.race-button {
+  background-color: #03bcff !important;
+  margin: 5px !important;
 }
 
 @keyframes logo-spin {

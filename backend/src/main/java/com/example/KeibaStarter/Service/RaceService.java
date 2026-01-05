@@ -28,7 +28,7 @@ import org.springframework.web.client.RestTemplate;
 public class RaceService {
 
     private RestTemplate restTemplate = new RestTemplate();
-    private String PYTHON_URL = "http://localhost:5000/predict";
+    private String PYTHON_URL = "https://keibaml.onrender.com/predict";
 
     @Autowired
     RaceRepository raceRepository;
@@ -54,7 +54,23 @@ public class RaceService {
             race = new Race(3000);
         } else if (raceName.equals("yk")) {
             race = new Race(1600);
-        }
+        } else if (raceName.equals("fs")) {
+            race = new Race(1600);
+        } else if (raceName.equals("tmk")) {
+            race = new Race(1200);
+        } else if (raceName.equals("oc")) {
+            race = new Race(2000);
+        } else if (raceName.equals("nhk")) {
+            race = new Race(1600);
+        } else if (raceName.equals("vm")) {
+            race = new Race(1600);
+        } else if (raceName.equals("ht")) {
+            race = new Race(3200);
+        } else if (raceName.equals("at")) {
+            race = new Race(2000);
+        } else if (raceName.equals("jc")) {
+            race = new Race(2400);
+        } 
 
         System.out.println("racer");
         System.out.println(race.getRacers());
@@ -103,6 +119,7 @@ public class RaceService {
         List<String> horses = new ArrayList<>();
 
         for (Horse racer : race.getRacers()) {
+            System.out.println("Adding horse " + racer);
             horses.add(racer.getName());
         }
 
@@ -111,6 +128,7 @@ public class RaceService {
         Map<String, Object> payload = new HashMap<>();
         payload.put("horses", horses);
         payload.put("distance", distance);
+        System.out.println("Horses: " + horses);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -143,7 +161,11 @@ public class RaceService {
     }
 
     public String getWinner(long raceId) { 
+        if (raceRepository.findById(raceId).get() == null) {
+            return null;
+        }
         Horse winner = raceRepository.getById(raceId).getWinner();
+        if (winner == null) return null;
         return winner.getName();
     }
 

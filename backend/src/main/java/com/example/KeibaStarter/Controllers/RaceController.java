@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.KeibaStarter.Service.RaceService;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin("https://keibastarter.onrender.com")
 @RestController
 @RequestMapping("/race")
 public class RaceController {
@@ -45,6 +45,9 @@ public class RaceController {
 
     @GetMapping("/getwinner/{raceId}")
     public String getWinner(@PathVariable long raceId) {
+        // if (raceService.findById(raceId) == null) {
+        //     return null;
+        // }
         return raceService.getWinner(raceId);
     }
 
@@ -55,9 +58,11 @@ public class RaceController {
 
     @PostMapping("/addracer/{raceId}/{racerName}")
     public void addRacer(@PathVariable long raceId, @PathVariable String racerName) {
-        if (!raceService.isValidRace(raceId) || !raceService.isValidRacer(racerName)) {
+        //System.out.println("racerId: "+raceId+" racerName: "+racerName);
+        //+3 to racerId to sync with db
+        if (!raceService.isValidRace(raceId+3) || !raceService.isValidRacer(racerName)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-        raceService.addRacer(raceId, racerName);
+        raceService.addRacer(raceId+3, racerName);
     }
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.example.KeibaStarter.Models.Horse;
 import com.example.KeibaStarter.Service.HorseService;
 
-@CrossOrigin("http://localhost:5173/")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/keiba")
 public class KeibaController {
@@ -48,5 +48,10 @@ public class KeibaController {
     @DeleteMapping("/delete/{name}")
     public void deleteHorse(@PathVariable String name) {
         horseService.deleteHorse(name);
+    }
+
+    @GetMapping("/health")
+    public String health() {
+        return "OK";
     }
 }

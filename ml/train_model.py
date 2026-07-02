@@ -21,6 +21,7 @@ def predict():
     horses = data["horses"]
     distance = data["distance"]
     selected_horses = [horse.replace('-', ' ').title() for horse in horses]
+    print(f"Database horses: {horses}")
     print(f"Testing text")
     logger.info(f"Received horses: {selected_horses}")
     print(f"Received horses: {selected_horses}")

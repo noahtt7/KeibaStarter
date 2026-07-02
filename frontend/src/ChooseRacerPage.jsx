@@ -85,7 +85,7 @@ const ChooseRacerPage = () => {
                             <Nav.Link onClick={() => handleHorsesClick()} className="keiba-nav-link">Horses</Nav.Link>
                         </Nav>
                         <div className="d-flex align-items-center gap-3">
-                            <Button variant="light">Login</Button>
+                            {/* <Button variant="light">Login</Button> */}
                             <a href="#" className="netkeiba-link text-decoration-none">Netkeiba</a>
                         </div>
                     </Navbar.Collapse>

@@ -72,7 +72,7 @@ def predict():
     )
 
     horse_stats['top3_rate'] = (
-       horse_stats["career_tops3"] /
+       horse_stats["career_top3"] /
        horse_stats["career_starts"]
     )
 

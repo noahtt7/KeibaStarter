@@ -49,20 +49,66 @@ def predict():
         .groupby("horse_name", as_index=False)[["distance", "age", "odds"]]
         .mean()
     )
-    race_df["distance"] = distance
-    #race_df = keiba_data[keiba_data["horse_name"].isin(selected_horses)].copy()
-    X_race = race_df[["distance", "age", "odds"]]
 
-    pred_places = model.predict(X_race)
-    race_df["predicted_place"] = pred_places
-    winner = race_df.loc[race_df["predicted_place"].idxmin(), "horse_name"]
+    race_history = keiba_data[
+       keiba_data["horse_name"].isin(selected_horses)
+    ].copy()
 
-    race_df = race_df.sort_values("predicted_place")
-    #print(race_df[["horse_name", "predicted_place"]])
+    horse_stats = (
+        race_history
+        .groupby("horse_name")
+        .agg(
+           career_starts=("place", "count"),
+            career_wins=("place", lambda x: (x == 1).sum()),
+            career_top3=("place", lambda x: (x <= 3).sum()),
+            avg_finish=("place", "mean")
+        )
+        .reset_index()
+     )
+    
+    horse_stats["win_rate"] = (
+       horse_stats["career_wins"] /
+       horse_stats["career_starts"]
+    )
+
+    horse_stats['top3_rate'] = (
+       horse_stats["career_tops3"] /
+       horse_stats["career_starts"]
+    )
+
+    horse_stats["distance"] = distance
+
+    X_race = horse_stats[
+       [
+          "distance",
+          "age",
+          "win_rate",
+          "top3_rate",
+          "avg_finish"
+       ]
+    ]
+
+    predictions = model.predict(X_race)
+
+    horse_stats["prediction"] = predictions
+
+    winner = horse_stats.loc[horse_stats["prediction"].idxmax(), "horse_name"]
+
+    ##
+    # race_df["distance"] = distance
+    # #race_df = keiba_data[keiba_data["horse_name"].isin(selected_horses)].copy()
+    # X_race = race_df[["distance", "age", "odds"]]
+
+    # pred_places = model.predict(X_race)
+    # race_df["predicted_place"] = pred_places
+    # winner = race_df.loc[race_df["predicted_place"].idxmin(), "horse_name"]
+
+    # race_df = race_df.sort_values("predicted_place")
+    # #print(race_df[["horse_name", "predicted_place"]])
 
 
-    print(race_df)
-    print(winner)
+    # print(race_df)
+    # print(winner)
 
     return winner
 

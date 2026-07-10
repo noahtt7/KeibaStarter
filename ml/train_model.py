@@ -61,7 +61,8 @@ def predict():
            career_starts=("place", "count"),
             career_wins=("place", lambda x: (x == 1).sum()),
             career_top3=("place", lambda x: (x <= 3).sum()),
-            avg_finish=("place", "mean")
+            avg_finish=("place", "mean"),
+            age=("age", "max")
         )
         .reset_index()
      )

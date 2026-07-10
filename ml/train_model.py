@@ -34,7 +34,11 @@ def predict():
 
     #X = keiba_data[keiba_columns]
     #y = keiba_data.win_flag
-    X = keiba_data[["distance", "age", "odds"]] # had racename, horsename, surface, but were strings
+    X = keiba_data[["distance",
+          "age",
+          "win_rate",
+          "top3_rate",
+          "avg_finish"]] # had racename, horsename, surface, but were strings
     y = keiba_data["place"]
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)

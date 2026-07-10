@@ -46,7 +46,7 @@ def predict():
     #selected_horses = ["Croix du Nord", "Kamunyak", "Jantar Mantar"]
     race_df = (
         keiba_data[keiba_data["horse_name"].isin(selected_horses)]
-        .groupby("horse_name", as_index=False)[["distance", "age", "odds"]]
+        .groupby("horse_name", as_index=False)[["distance", "age"]]
         .mean()
     )
 

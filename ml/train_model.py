@@ -38,9 +38,7 @@ def predict():
         .groupby("horse_name")
         .agg(
             win_rate=("win_flag", "mean"),
-           career_starts=("place", "count"),
-            career_wins=("place", lambda x: (x == 1).sum()),
-            career_top3=("place", lambda x: (x <= 3).sum()),
+            top3_rate=("place", lambda x: (x <= 3).sum()),
             avg_finish=("place", "mean"),
             age=("age", "max")
         )

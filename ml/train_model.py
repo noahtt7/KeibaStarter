@@ -50,7 +50,7 @@ def predict():
 
     
    # Join stats
-    keiba_data = keiba_data.merge(horse_sats[["horse_name", "win_rate", "top3_rate", "avg_finish"]], on="horse_name", how="left")
+    keiba_data = keiba_data.merge(horse_stats[["horse_name", "win_rate", "top3_rate", "avg_finish"]], on="horse_name", how="left")
     
     FEATURES = ["distance", "age", "win_rate", "top3_rate", "avg_finish"]
     X = keiba_data[FEATURES]

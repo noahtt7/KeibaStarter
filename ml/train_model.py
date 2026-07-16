@@ -28,40 +28,16 @@ def predict():
 
     keiba_file_path = 'keibasheet.csv'
     keiba_data = pd.read_csv(keiba_file_path)
-    #print(keiba_data.describe())
-
-    keiba_columns = ['race_name', 'horse_name', 'surface', 'distance']
-
-    #X = keiba_data[keiba_columns]
-    #y = keiba_data.win_flag
-    X = keiba_data[["distance",
-          "age",
-          "win_rate",
-          "top3_rate",
-          "avg_finish"]] # had racename, horsename, surface, but were strings
-    y = keiba_data["place"]
-
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-
-    model = RandomForestRegressor()
-    model.fit(X_train, y_train)
-
-    #selected_horses = ["Croix du Nord", "Kamunyak", "Jantar Mantar"]
-    race_df = (
-        keiba_data[keiba_data["horse_name"].isin(selected_horses)]
-        .groupby("horse_name", as_index=False)[["distance", "age"]]
-        .mean()
-    )
 
     race_history = keiba_data[
        keiba_data["horse_name"].isin(selected_horses)
     ].copy()
 
-    horse_stats = (
+    all_horse_stats = (
         race_history
         .groupby("horse_name")
         .agg(
+            win_rate=("win_flag", "mean"),
            career_starts=("place", "count"),
             career_wins=("place", lambda x: (x == 1).sum()),
             career_top3=("place", lambda x: (x <= 3).sum()),
@@ -71,33 +47,44 @@ def predict():
         .reset_index()
      )
     
-    horse_stats["win_rate"] = (
-       horse_stats["career_wins"] /
-       horse_stats["career_starts"]
-    )
 
-    horse_stats['top3_rate'] = (
-       horse_stats["career_top3"] /
-       horse_stats["career_starts"]
-    )
+    
+   # Join stats
+    keiba_data = keiba_data.merge(horse_sats[["horse_name", "win_rate", "top3_rate", "avg_finish"]], on="horse_name", how="left")
+    
+    FEATURES = ["distance", "age", "win_rate", "top3_rate", "avg_finish"]
+    X = keiba_data[FEATURES]
+    y = keiba_data["place"]
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    model = RandomForestRegressor()
+    model.fit(X_train, y_train)
+
+    horse_stats = all_horse_stats[all_horse_stats["horse_name"].isin(selected_horses)].copy()
+    # horse_stats["distance"] = distance
+
+    #  horse_stats["win_rate"] = (
+    #     horse_stats["career_wins"] /
+    #     horse_stats["career_starts"]
+    #  )
+    
+    #  horse_stats['top3_rate'] = (
+    #     horse_stats["career_top3"] /
+    #     horse_stats["career_starts"]
+    #  )
 
     horse_stats["distance"] = distance
 
     X_race = horse_stats[
-       [
-          "distance",
-          "age",
-          "win_rate",
-          "top3_rate",
-          "avg_finish"
-       ]
+        [
+            FEATURES
+        ]
     ]
 
     predictions = model.predict(X_race)
-
     horse_stats["prediction"] = predictions
 
-    winner = horse_stats.loc[horse_stats["prediction"].idxmax(), "horse_name"]
+    winner = horse_stats.loc[horse_stats["prediction"].idxmin(), "horse_name"]
 
     ##
     # race_df["distance"] = distance

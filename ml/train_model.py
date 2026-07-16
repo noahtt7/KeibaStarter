@@ -29,12 +29,12 @@ def predict():
     keiba_file_path = 'keibasheet.csv'
     keiba_data = pd.read_csv(keiba_file_path)
 
-    race_history = keiba_data[
-       keiba_data["horse_name"].isin(selected_horses)
-    ].copy()
+   #  race_history = keiba_data[
+   #     keiba_data["horse_name"].isin(selected_horses)
+   #  ].copy()
 
     all_horse_stats = (
-        race_history
+        keiba_data
         .groupby("horse_name")
         .agg(
             win_rate=("win_flag", "mean"),
@@ -50,7 +50,7 @@ def predict():
 
     
    # Join stats
-    keiba_data = keiba_data.merge(horse_stats[["horse_name", "win_rate", "top3_rate", "avg_finish"]], on="horse_name", how="left")
+    keiba_data = keiba_data.merge(all_horse_stats[["horse_name", "win_rate", "top3_rate", "avg_finish"]], on="horse_name", how="left")
     
     FEATURES = ["distance", "age", "win_rate", "top3_rate", "avg_finish"]
     X = keiba_data[FEATURES]

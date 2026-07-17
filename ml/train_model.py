@@ -73,11 +73,7 @@ def predict():
 
     horse_stats["distance"] = distance
 
-    X_race = horse_stats[
-        [
-            FEATURES
-        ]
-    ]
+    X_race = horse_stats[FEATURES]
 
     predictions = model.predict(X_race)
     horse_stats["prediction"] = predictions

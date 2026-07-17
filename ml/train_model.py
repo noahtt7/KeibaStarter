@@ -14,6 +14,31 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 CORS(app)
 
+keiba_file_path = 'keibasheet.csv'
+keiba_data = pd.read_csv(keiba_file_path)
+
+all_horse_stats = (
+    keiba_data
+    .groupby("horse_name")
+    .agg(
+        win_rate=("win_flag", "mean"),
+        top3_rate=("place", lambda x: (x <= 3).sum()),
+        avg_finish=("place", "mean"),
+        age=("age", "max")
+    ).reset_index()
+)
+   
+# Join stats
+keiba_data = keiba_data.merge(all_horse_stats[["horse_name", "win_rate", "top3_rate", "avg_finish"]], on="horse_name", how="left")
+    
+FEATURES = ["distance", "age", "win_rate", "top3_rate", "avg_finish"]
+X = keiba_data[FEATURES]
+y = keiba_data["place"]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+model = RandomForestRegressor()
+model.fit(X_train, y_train)
+
 @app.route("/predict", methods=["POST"])
 def predict():
     logger.info("---- inside function-----")
@@ -26,38 +51,11 @@ def predict():
     logger.info(f"Received horses: {selected_horses}")
     print(f"Received horses: {selected_horses}")
 
-    keiba_file_path = 'keibasheet.csv'
-    keiba_data = pd.read_csv(keiba_file_path)
 
    #  race_history = keiba_data[
    #     keiba_data["horse_name"].isin(selected_horses)
    #  ].copy()
-
-    all_horse_stats = (
-        keiba_data
-        .groupby("horse_name")
-        .agg(
-            win_rate=("win_flag", "mean"),
-            top3_rate=("place", lambda x: (x <= 3).sum()),
-            avg_finish=("place", "mean"),
-            age=("age", "max")
-        )
-        .reset_index()
-     )
     
-
-    
-   # Join stats
-    keiba_data = keiba_data.merge(all_horse_stats[["horse_name", "win_rate", "top3_rate", "avg_finish"]], on="horse_name", how="left")
-    
-    FEATURES = ["distance", "age", "win_rate", "top3_rate", "avg_finish"]
-    X = keiba_data[FEATURES]
-    y = keiba_data["place"]
-
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    model = RandomForestRegressor()
-    model.fit(X_train, y_train)
-
     horse_stats = all_horse_stats[all_horse_stats["horse_name"].isin(selected_horses)].copy()
     # horse_stats["distance"] = distance
 

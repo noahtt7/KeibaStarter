@@ -74,6 +74,11 @@ def predict():
     X_race = horse_stats[FEATURES]
 
     predictions = model.predict(X_race)
+
+    #noise
+    noise = np.random.normal(0, 0.5, size=len(predictions))
+    predictions = predictions + noise
+
     horse_stats["prediction"] = predictions
 
     winner = horse_stats.loc[horse_stats["prediction"].idxmin(), "horse_name"]

@@ -133,19 +133,32 @@
 }
 
 /* Gradient backgrounds for each race */
-.race-card-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-.race-card-2 { background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%); }
-.race-card-3 { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
-.race-card-4 { background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%); }
-.race-card-5 { background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%); }
-.race-card-6 { background: linear-gradient(135deg, #f857a6 0%, #ff5858 100%); }
-.race-card-7 { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
-.race-card-8 { background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); }
-.race-card-9 { background: linear-gradient(135deg, #d53369 0%, #daae51 100%); }
-.race-card-10 { background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%); }
-.race-card-11 { background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%); }
-.race-card-12 { background: linear-gradient(135deg, #f2994a 0%, #f2c94c 100%); }
-.race-card-13 { background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%); }
+.race-card-1 { background-image: url(C:\Users\There\Documents\SideProjects\KeibaStarter\frontend\src\services\images\arimakinen.jpg);
+                background-size: cover; background-position:center; }
+.race-card-2 { background-image: url(C:\Users\There\Documents\SideProjects\KeibaStarter\frontend\src\services\images\阪神競馬場.jpg);
+                background-size: cover; background-position:center; }
+.race-card-3 { background-image: url(C:\Users\There\Documents\SideProjects\KeibaStarter\frontend\src\services\images\japanderby.jpg);
+                background-size: cover; background-position:center; }
+.race-card-4 { background-image: url(C:\Users\There\Documents\SideProjects\KeibaStarter\frontend\src\services\images\deep7-1.jpg);
+                background-size: cover; background-position:center; }
+.race-card-5 { background-image: url(C:\Users\There\Documents\SideProjects\KeibaStarter\frontend\src\services\images\febstakes.jpg);
+                background-size: cover; background-position:center;  }
+.race-card-6 { background-image: url(C:\Users\There\Documents\SideProjects\KeibaStarter\frontend\src\services\images\takamatsunomiya.jpg);
+                background-size: cover; background-position:center;  }
+.race-card-7 { background-image: url(C:\Users\There\Documents\SideProjects\KeibaStarter\frontend\src\services\images\大阪杯.jpg);
+                background-size: cover; background-position:center;  }
+.race-card-8 { background-image: url(C:\Users\There\Documents\SideProjects\KeibaStarter\frontend\src\services\images\ロデオドライブ号.jpg);
+                background-size: cover; background-position:center;  }
+.race-card-9 { background-image: url(C:\Users\There\Documents\SideProjects\KeibaStarter\frontend\src\services\images\victoria2.jpg);
+                background-size: cover; background-position:center; }
+.race-card-10 { background-image: url(C:\Users\There\Documents\SideProjects\KeibaStarter\frontend\src\services\images\yasuda.jpg);
+                background-size: cover; background-position:center; }
+.race-card-11 { background-image: url(C:\Users\There\Documents\SideProjects\KeibaStarter\frontend\src\services\images\haruten2.jpg);
+                background-size: cover; background-position:center; }
+.race-card-12 { background-image: url(C:\Users\There\Documents\SideProjects\KeibaStarter\frontend\src\services\images\akiten.jpg);
+                background-size: cover; background-position:center; }
+.race-card-13 { background-image: url(C:\Users\There\Documents\SideProjects\KeibaStarter\frontend\src\services\images\Calandagan-JC-reduced.jpg);
+                background-size: cover; background-position:center; }
 
 /* Shine effect on hover */
 .race-card::after {

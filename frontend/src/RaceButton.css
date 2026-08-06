@@ -75,7 +75,7 @@
     overflow: hidden;
     border: none;
     color: white;
-    height: 150px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -140,7 +140,7 @@
 .race-card-3 { background-image: url('/images/japanderby.jpg');
                 background-size: cover; background-position:center; }
 .race-card-4 { background-image: url('/images/deep7-1.jpg');
-                background-size: cover; background-position:center; }
+                background-size: 90%; background-position:center; }
 .race-card-5 { background-image: url('/images/febstakes.jpg');
                 background-size: cover; background-position:center;  }
 .race-card-6 { background-image: url('/images/takamatsunomiya.jpg');
@@ -151,7 +151,7 @@
                 background-size: cover; background-position:center;  }
 .race-card-9 { background-image: url('/images/victoria2.jpg');
                 background-size: cover; background-position:center; }
-.race-card-10 { background-image: url('/images/yasuda.jpg');
+.race-card-10 { background-image: url('/images/yasuda2.jpg');
                 background-size: cover; background-position:center; }
 .race-card-11 { background-image: url('/images/haruten2.jpg');
                 background-size: cover; background-position:center; }

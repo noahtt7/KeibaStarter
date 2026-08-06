@@ -133,7 +133,7 @@
 }
 
 /* Gradient backgrounds for each race */
-.race-card-1 { background-image: url('./images/arimakinen.jpg');
+.race-card-1 { background-image: url('/images/arimakinen.jpg');
                 background-size: cover; background-position:center; }
 .race-card-2 { background-image: url(C:\Users\There\Documents\SideProjects\KeibaStarter\frontend\src\services\images\hanshin.jpg);
                 background-size: cover; background-position:center; }

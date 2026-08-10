@@ -30,6 +30,7 @@ const HorsesPage = () => {
                     <tr>
                         <th>Horse Name</th>
                         <th>Age</th>
+                        <th>Netkeiba Page</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,6 +39,13 @@ const HorsesPage = () => {
                             <tr key={horse} onClick={() => addRacer(horse.name)}>
                                 <td>{normalizeName(horse.name)}</td>
                                 <td>{horse.age}</td>
+                                <td>
+                                    {horse.netkeibaUrl ? (
+                                        <a href={horse.netkeibaUrl} target="_blank" rel="noreferrer">
+                                            Netkeiba ↗
+                                        </a>
+                                    ) : "—"}
+                                </td>
                             </tr>
                         )
                     }

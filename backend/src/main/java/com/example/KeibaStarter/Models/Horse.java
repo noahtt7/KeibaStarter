@@ -19,6 +19,7 @@ public class Horse {
     private boolean runsTurf;
     private Integer age;
     private boolean isMale;
+    private String netkeibaUrl;
     
     @Column(name = "length_aptitude")
     private Integer lengthAptitude;

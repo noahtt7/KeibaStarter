@@ -63,4 +63,10 @@ public class Horse {
     public void setRace(Race race) {
         this.race = race;
     }
+
+    public String getUrl() {
+        return this.netkeibaUrl;
+    }
+
+
 }

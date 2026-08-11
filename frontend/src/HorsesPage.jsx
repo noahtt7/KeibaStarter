@@ -41,7 +41,7 @@ const HorsesPage = () => {
                                 <td>{horse.age}</td>
                                 <td>
                                     {horse.netkeibaUrl ? (
-                                        <a href={horse.netkeibaUrl} target="_blank" rel="noreferrer">
+                                        <a href={horse.url} target="_blank" rel="noreferrer">
                                             Netkeiba ↗
                                         </a>
                                     ) : "—"}

@@ -40,7 +40,7 @@ const HorsesPage = () => {
                                 <td>{normalizeName(horse.name)}</td>
                                 <td>{horse.age}</td>
                                 <td>
-                                    {horse.netkeibaUrl ? (
+                                    {horse.url ? (
                                         <a href={horse.url} target="_blank" rel="noreferrer">
                                             Netkeiba ↗
                                         </a>

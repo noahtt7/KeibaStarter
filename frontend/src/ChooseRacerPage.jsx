@@ -77,7 +77,7 @@ const ChooseRacerPage = () => {
         <div className='keiba-page'>
             <Navbar expand="lg" className="keiba-navbar sticky-top">
                 <Container fluid>
-                    <Navbar.Brand href="#" className="keiba-brand">Keiba Simulator</Navbar.Brand>
+                    <Navbar.Brand href="#" className="keiba-brand">KeibaIO</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">

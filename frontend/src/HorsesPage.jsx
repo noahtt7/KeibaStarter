@@ -54,7 +54,7 @@ const HorsesPage = () => {
                                             textDecoration: 'none',
                                             letterSpacing: '0.05em',
                                         }}>
-                                            Netkeiba ↗
+                                            Netkeiba
                                         </a>
                                     ) : "—"}
                                 </td>

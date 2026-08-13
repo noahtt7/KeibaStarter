@@ -75,7 +75,7 @@
     overflow: hidden;
     border: none;
     color: white;
-    height: 150px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -133,19 +133,32 @@
 }
 
 /* Gradient backgrounds for each race */
-.race-card-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-.race-card-2 { background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%); }
-.race-card-3 { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
-.race-card-4 { background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%); }
-.race-card-5 { background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%); }
-.race-card-6 { background: linear-gradient(135deg, #f857a6 0%, #ff5858 100%); }
-.race-card-7 { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
-.race-card-8 { background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); }
-.race-card-9 { background: linear-gradient(135deg, #d53369 0%, #daae51 100%); }
-.race-card-10 { background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%); }
-.race-card-11 { background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%); }
-.race-card-12 { background: linear-gradient(135deg, #f2994a 0%, #f2c94c 100%); }
-.race-card-13 { background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%); }
+.race-card-1 { background-image: url('/images/arimakinen.jpg');
+                background-size: cover; background-position:center; }
+.race-card-2 { background-image: url('/images/hanshin.jpg');
+                background-size: cover; background-position:center; }
+.race-card-3 { background-image: url('/images/japanderby.jpg');
+                background-size: cover; background-position:center; }
+.race-card-4 { background-image: url('/images/deep7-1.jpg');
+                background-size: 90%; background-position:center; }
+.race-card-5 { background-image: url('/images/febstakes.jpg');
+                background-size: cover; background-position:center;  }
+.race-card-6 { background-image: url('/images/takamatsunomiya.jpg');
+                background-size: cover; background-position:center;  }
+.race-card-7 { background-image: url('/images/osakahai.jpg');
+                background-size: cover; background-position:center;  }
+.race-card-8 { background-image: url('/images/rodeodrive.jpg');
+                background-size: cover; background-position:center;  }
+.race-card-9 { background-image: url('/images/victoria2.jpg');
+                background-size: cover; background-position:center; }
+.race-card-10 { background-image: url('/images/yasuda2.jpg');
+                background-size: cover; background-position:center; }
+.race-card-11 { background-image: url('/images/haruten2.jpg');
+                background-size: cover; background-position:center; }
+.race-card-12 { background-image: url('/images/akiten.jpg');
+                background-size: cover; background-position:center; }
+.race-card-13 { background-image: url('/images/Calandagan-JC-reduced.jpg');
+                background-size: cover; background-position:center; }
 
 /* Shine effect on hover */
 .race-card::after {

@@ -1,14 +1,20 @@
 race_name,horse_name,distance,surface,age,weight,odds,place,win_flag
-Japan Derby 2025,Croix du Nord,2400,Turf,3,57,2.1,1,1
-Satsuki Sho 2025,Croix du Nord,2000,Turf,3,57,1.5,2,0
-Hopeful Stakes 2025,Croix du Nord,2000,Turf,3,56,1.8,1,1
-Oaks 2025,Kamunyak,2400,Turf,3,55,14.3,1,1
-Yasuda Kinen 2025,Jantar Mantar,1600,Turf,4,58,4.3,1,1
-Ouka Sho 2025,Embroidery,1600,Turf,3,55,5,1,1
-Oaks 2025,Embroidery,2400,Turf,3,55,3.3,9,0
-Victoria Mile 2025,Ascoli Piceno,1600,Turf,4,58.5,2.5,1,1
-Satsuki Sho 2025,Museum Mile,2000,Turf,3,57,10.6,1,1
-Japan Derby 2025,Museum Mile,2400,Turf,3,57,5.7,6,0
+2024 Tokyo Sports Hai,Croix du Nord,1800,Turf,2,55,2.2,1,1
+2024 Hopeful Stakes,Croix du Nord,2000,Turf,3,56,1.8,1,1
+2025 Satsuki Sho,Croix du Nord,2000,Turf,3,57,1.5,2,0
+2025 Japan Derby,Croix du Nord,2400,Turf,3,57,2.1,1,1
+2025 Japan Cup,Croix du Nord,2400,Turf,3,56,4.6,4,0
+2026 Osaka Cup,Croix du Nord,2000,Turf,4,58,2.5,1,1
+2026 Tenno Sho Spring,Croix du Nord,3200,Turf,4,58,1.8,1,1
+2026 Takarazuka Kinen,Croix du Nord,2200,Turf,4,28,2.5,2,0
+2025 Oaks,Kamunyak,2400,Turf,3,55,14.3,1,1
+2025 Yasuda Kinen,Jantar Mantar,1600,Turf,4,58,4.3,1,1
+2025 Ouka Sho,Embroidery,1600,Turf,3,55,5,1,1
+2025 Oaks,Embroidery,2400,Turf,3,55,3.3,9,0
+2026 Victoria Mile,Embroidery,1600,Turf,4,56,1.9,1,1
+2025 Victoria Mile,Ascoli Piceno,1600,Turf,4,56,2.5,1,1
+2025 Satsuki Sho,Museum Mile,2000,Turf,3,57,10.6,1,1
+2025 Japan Derby,Museum Mile,2400,Turf,3,57,5.7,6,0
 2025 Tenno Sho Autumn,Museum Mile,2000,Turf,3,56,7.4,2,0
 2024 Asahi Futurity,Museum Mile,1600,Turf,2,56,3.7,2,0
 2025 Shuka Sho,Embroidery,2200,Turf,3,55,5.5,1,1
@@ -22,6 +28,7 @@ Japan Derby 2025,Museum Mile,2400,Turf,3,57,5.7,6,0
 2024 NHK Mile Cup,Ascoli Piceno,1600,Turf,3,55,2.9,2,0
 2024 Ouka Sho,Ascoli Piceno,1600,Turf,3,55,3.5,2,0
 2023 Hanshin JF,Ascoli Piceno,1600,Turf,2,55,5.9,1,1
+2025 Kyodo Tsushin Hai,Masquerade Ball,1800,Turf,3,57,3.8,1,1
 2025 Satsuki Sho,Masquerade Ball,2000,Turf,3,57,13.7,3,0
 2025 Japan Derby,Masquerade Ball,2400,Turf,3,57,6.8,2,0
 2025 Tenno Sho Autumn,Masquerade Ball,2000,Turf,3,56,2.7,1,1

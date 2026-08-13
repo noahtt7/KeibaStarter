@@ -19,6 +19,7 @@ public class Horse {
     private boolean runsTurf;
     private Integer age;
     private boolean isMale;
+    private String netkeibaUrl;
     
     @Column(name = "length_aptitude")
     private Integer lengthAptitude;
@@ -30,12 +31,13 @@ public class Horse {
     public Horse() {
     }
 
-    public Horse(String name, boolean runsTurf, int aptitude, Integer age, boolean isMale) {
+    public Horse(String name, boolean runsTurf, int aptitude, Integer age, boolean isMale, String netkeibaUrl) {
         this.name = name;
         this.runsTurf = runsTurf;
         this.lengthAptitude = aptitude;
         this.age = age;
         this.isMale = isMale;
+        this.netkeibaUrl = netkeibaUrl;
     }
 
     public String getName() {
@@ -61,4 +63,10 @@ public class Horse {
     public void setRace(Race race) {
         this.race = race;
     }
+
+    public String getUrl() {
+        return this.netkeibaUrl;
+    }
+
+
 }

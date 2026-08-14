@@ -40,7 +40,7 @@ function HomePage() {
                         </Nav>
                         <div className="d-flex align-items-center gap-3">
                             {/* <Button variant="light">Login</Button> */}
-                            <a href="https://en.netkeiba.com/" className="netkeiba-link text-decoration-none">Netkeiba</a>
+                            <Button variant="outline-info" href="https://en.netkeiba.com/" target="_blank" className="netkeiba-link">Netkeiba</Button>
                         </div>
                     </Navbar.Collapse>
                 </Container>

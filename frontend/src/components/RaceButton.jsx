@@ -8,19 +8,20 @@ export const RaceButton = () => {
     const [selectedRace, setSelectedRace] = useState(null);
     
     const races = [
-        { id: 'ak', name: 'Arima Kinen', track: 'Nakayama', distance: '2500m', gradient: 1 },
-        { id: 'tk', name: 'Takarazuka Kinen', track: 'Hanshin', distance: '2200m', gradient: 2 },
-        { id: 'jd', name: 'Japan Derby', track: 'Tokyo', distance: '2400m', gradient: 3 },
-        { id: 'ks', name: 'Kikka Sho', track: 'Kyoto', distance: '3000m', gradient: 4 },
-        { id: 'fs', name: 'February Stakes', track: 'Tokyo', distance: '1600m', gradient: 5 },
-        { id: 'tmk', name: 'Takamatsunomiya Kinen', track: 'Chukyo', distance: '1200m', gradient: 6 },
-        { id: 'oc', name: 'Osaka Cup', track: 'Hanshin', distance: '2000m', gradient: 7 },
-        { id: 'nhk', name: 'NHK Mile Cup', track: 'Tokyo', distance: '1600m', gradient: 8 },
-        { id: 'vm', name: 'Victoria Mile', track: 'Kyoto', distance: '1600m', gradient: 9 },
-        { id: 'yk', name: 'Yasuda Kinen', track: 'Tokyo', distance: '1600m', gradient: 10 },
-        { id: 'ht', name: 'Spring Tenno Sho', track: 'Kyoto', distance: '3200m', gradient: 11 },
-        { id: 'at', name: 'Fall Tenno Sho', track: 'Tokyo', distance: '2000m', gradient: 12 },
-        { id: 'jc', name: 'Japan Cup', track: 'Tokyo', distance: '2400m', gradient: 13 },
+        { id: 'ak', name: 'Arima Kinen', track: 'Nakayama', distance: '2500m', surface: 'Turf', gradient: 1 },
+        { id: 'tk', name: 'Takarazuka Kinen', track: 'Hanshin', distance: '2200m', surface: 'Turf', gradient: 2 },
+        { id: 'jd', name: 'Japan Derby', track: 'Tokyo', distance: '2400m', surface: 'Turf', gradient: 3 },
+        { id: 'ks', name: 'Kikka Sho', track: 'Kyoto', distance: '3000m', surface: 'Turf', gradient: 4 },
+        { id: 'fs', name: 'February Stakes', track: 'Tokyo', distance: '1600m', surface: 'Dirt', gradient: 5 },
+        { id: 'tmk', name: 'Takamatsunomiya Kinen', track: 'Chukyo', distance: '1200m', surface: 'Turf', gradient: 6 },
+        { id: 'oc', name: 'Osaka Cup', track: 'Hanshin', distance: '2000m', surface: 'Turf', gradient: 7 },
+        { id: 'nhk', name: 'NHK Mile Cup', track: 'Tokyo', distance: '1600m', surface: 'Turf', gradient: 8 },
+        { id: 'vm', name: 'Victoria Mile', track: 'Kyoto', distance: '1600m', surface: 'Turf', gradient: 9 },
+        { id: 'yk', name: 'Yasuda Kinen', track: 'Tokyo', distance: '1600m', surface: 'Turf', gradient: 10 },
+        { id: 'ht', name: 'Spring Tenno Sho', track: 'Kyoto', distance: '3200m', surface: 'Turf', gradient: 11 },
+        { id: 'at', name: 'Fall Tenno Sho', track: 'Tokyo', distance: '2000m', surface: 'Turf', gradient: 12 },
+        { id: 'jc', name: 'Japan Cup', track: 'Tokyo', distance: '2400m', surface: 'Turf', gradient: 13 },
+        { id: 'td', name: 'Tokyo Daishoten', track: 'Oi', distance: '2000m', surface: 'Dirt', gradient: 14 },
     ];
 
     const handleCreateRace = async (raceStr) => {
@@ -66,7 +67,7 @@ export const RaceButton = () => {
             {/* Main Content */}
             <div className="race-selector-wrapper">
                 <div className="text-center mb-5">
-                    <h1 className="hero-title">Keiba Starter</h1>
+                    <h1 className="hero-title">KeibaIO</h1>
                     <p className="hero-subtitle">Choose a G1 Japanese horse race to simulate</p>
                 </div>
 
@@ -82,7 +83,10 @@ export const RaceButton = () => {
                                         <div className="race-name">{race.name}</div>
                                         <div className="race-info">
                                             <span>📍 {race.track}</span>
-                                            <span className="race-distance">{race.distance}</span>
+                                            <div className="race-metrics" style={{ display: 'flex', flexDirection: 'column', marginTop: '4px' }}>
+                                                <span className="race-distance">{race.distance}</span>
+                                                <span className="race-surface">{race.surface}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

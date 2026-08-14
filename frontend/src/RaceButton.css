@@ -159,6 +159,8 @@
                 background-size: cover; background-position:center; }
 .race-card-13 { background-image: url('/images/Calandagan-JC-reduced.jpg');
                 background-size: cover; background-position:center; }
+.race-card-14 { background-image: url('/images/tokyodaishoten.png');
+                background-size: cover; background-position:center; }
 
 /* Shine effect on hover */
 .race-card::after {

@@ -33,3 +33,36 @@ race_name,horse_name,distance,surface,age,weight,odds,place,win_flag
 2025 Japan Derby,Masquerade Ball,2400,Turf,3,57,6.8,2,0
 2025 Tenno Sho Autumn,Masquerade Ball,2000,Turf,3,56,2.7,1,1
 2025 Japan Cup,Masquerade Ball,2400,Turf,3,56,2.5,2,0
+2024 Arima Kinen,Regaleira,2500,Turf,3,54,10.9,1,1
+2025 Takarazuka Kinen,Regaleira,2200,Turf,4,56,4.9,11,0
+2025 Sankei Sho All Comers,Regaleira,2200,Turf,4,57,3.3,1,1
+2025 Queen Elizabeth II Cup,Regaleira,2200,Turf,4,56,2.3,1,1
+2025 Arima Kinen,Regaleira,2500,Turf,4,56,3.3,4,0
+2025 Takarazuka Kinen,Regaleira,2200,Turf,5,56,7.8,7,0
+2024 Mainichi Hai,Meisho Tabaru,1800,Turf,3,57,9.4,1,1
+2024 Satsuki Sho,Meisho Tabaru,2000,Turf,3,57,7.0,17,0
+2024 Kobe Shimbun Hai,Meisho Tabaru,2200,Turf,3,57,5.4,1,1
+2024 Kikka Sho,Meisho Tabaru,3000,Turf,3,57,9.6,16,0
+2025 Nikkei Shinshun Hai,Meisho Tabaru,2200,Turf,4,57,5.3,11,0
+2025 Takarazuka Kinen,Meisho Tabaru,2200,Turf,4,58,11.4,1,1
+2025 Tenno Sho Autumn,Meisho Tabaru,2000,Turf,4,58,8.6,6,0
+2025 Arima Kinen,Meisho Tabaru,2500,Turf,4,58,5.8,13,0
+2026 Osaka Hai,Meisho Tabaru,2000,Turf,5,58,4.8,2,0
+2026 Takarazuka Kinen,Meisho Tabaru,2200,Turf,5,58,3.9,1,1
+2024 Hakodate Sprint S,Satono Reve,1200,Turf,5,57,3.6,1,1
+2024 Sprinters Stakes,Satono Reve,1200,Turf,5,58,3.0,7,0
+2025 Takamatsunomiya Kinen,Satono Reve,1200,Turf,6,58,3.8,1,1
+2025 Sprinters Stakes,Satono Reve,1200,Turf,6,58,2.2,4,0
+2026 Takamatsunomiya Kinen,Satono Reve,1200,Turf,7,58,3.5,1,1
+2025 Asahi Hai FS,Realize Sirius,1600,Turf,2,55,4.9,5,0
+2026 Kyodo News Hai,Realize Sirius,1800,Turf,3,57,3.7,1,1
+2026 Satsuki Sho,Realize Sirius,2000,Turf,3,57,6.2,2,0
+2026 Japanese Derby,Realize Sirius,2400,Turf,3,57,5.7,7,0
+2025 Hopeful Stakes,Lovcen,2000,Turf,2,56,19.8,1,1
+2026 Kyodo News Hai,Lovcen,1800,Turf,3,57,4.2,3,0
+2026 Satsuki Sho,Lovcen,2000,Turf,3,57,4.0,1,1
+2026 Japanese Derby,Lovcen,2400,Turf,3,57,2.7,1,1
+2025 Negishi S,Costa Nova,1400,Dirt,5,57,4.6,1,1
+2025 February S,Costa Nova,1600,Dirt,5,58,4.3,1,1
+2025 Musashino S,Costa Nova,1600,Dirt,5,59,2.8,2,0
+2026 February S,Costa Nova,1600,Dirt,6,58,3.4,1,1

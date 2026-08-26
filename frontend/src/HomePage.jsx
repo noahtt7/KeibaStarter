@@ -36,7 +36,7 @@ function HomePage() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link as={Link} to="/" className="keiba-nav-link">Home</Nav.Link>
+                            <Nav.Link onClick={() => navigate('/')} className="keiba-nav-link">Home</Nav.Link>
                             <Nav.Link onClick={() => handleHorsesClick()} className="keiba-nav-link">Horses</Nav.Link>
                         </Nav>
                         <div className="d-flex align-items-center gap-3">

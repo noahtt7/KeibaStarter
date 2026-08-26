@@ -5,6 +5,8 @@ import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import './App.css'
 
 const HorsesPage = () => {
+    const navigate = useNavigate();
+
     const [horses, setHorses] = useState([]);
 
     useEffect(() => {
@@ -23,8 +25,28 @@ const HorsesPage = () => {
                 .join(" ");
     }
 
+    const handleHorsesClick = () => {
+        navigate('/horses');
+    };
+
     return(
         <div className="keiba-page">
+            <Navbar expand="lg" className="keiba-navbar sticky-top">
+                <Container fluid>
+                    <Navbar.Brand href="#" className="keiba-brand">KeibaIO</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link onClick={() => navigate('/')} className="keiba-nav-link">Home</Nav.Link>
+                            <Nav.Link onClick={() => handleHorsesClick()} className="keiba-nav-link">Horses</Nav.Link>
+                        </Nav>
+                        <div className="d-flex align-items-center gap-3">
+                            {/* <Button variant="light">Login</Button> */}
+                            <Button variant="outline-info" href="https://en.netkeiba.com/" target="_blank" className="netkeiba-link">Netkeiba</Button>
+                        </div>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
             <table className='table table-hover table-dark table-striped table-bordered'>
                 <thead>
                     <tr>

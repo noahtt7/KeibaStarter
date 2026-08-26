@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, BrowserRouter, Route, Router, Routes } from 'react-router-dom'
 import { getCount, listHorses } from './services/KeibaService';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import './App.css'
 
 const ChooseRacerPage = () => {

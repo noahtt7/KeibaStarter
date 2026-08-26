@@ -52,10 +52,6 @@ def predict():
     logger.info(f"Received horses: {selected_horses}")
     print(f"Received horses: {selected_horses}")
 
-    print("Selected horses:", selected_horses)
-    print("CSV horses:", all_horse_stats["horse_name"].tolist())
-
-
    #  race_history = keiba_data[
    #     keiba_data["horse_name"].isin(selected_horses)
    #  ].copy()

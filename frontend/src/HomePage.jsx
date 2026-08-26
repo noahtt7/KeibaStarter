@@ -3,6 +3,7 @@ import { useNavigate, BrowserRouter, Route, Router, Routes } from 'react-router-
 import { RaceButton } from './components/RaceButton';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 //import { listRaces } from './services/KeibaService'
 import './RaceButton.css';
 
@@ -35,7 +36,7 @@ function HomePage() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#" className="keiba-nav-link">Home</Nav.Link>
+                            <Nav.Link as={Link} to="/" className="keiba-nav-link">Home</Nav.Link>
                             <Nav.Link onClick={() => handleHorsesClick()} className="keiba-nav-link">Horses</Nav.Link>
                         </Nav>
                         <div className="d-flex align-items-center gap-3">

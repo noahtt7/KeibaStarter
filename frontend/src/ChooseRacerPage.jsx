@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, BrowserRouter, Route, Router, Routes } from 'react-router-dom'
 import { getCount, listHorses } from './services/KeibaService';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './App.css'
 
 const ChooseRacerPage = () => {
@@ -52,6 +53,10 @@ const ChooseRacerPage = () => {
                 .join(" ");
     }
 
+    const handleHorsesClick = () => {
+        navigate('/horses');
+    };
+
     const simulateRace = async () => {
         const count = await parseCount();
         fetch(`https://keibabackend.onrender.com/race/simulaterace/${count+3}`, {
@@ -81,7 +86,7 @@ const ChooseRacerPage = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#" className="keiba-nav-link">Home</Nav.Link>
+                            <Nav.Link As={Link} to="/" className="keiba-nav-link">Home</Nav.Link>
                             <Nav.Link onClick={() => handleHorsesClick()} className="keiba-nav-link">Horses</Nav.Link>
                         </Nav>
                         <div className="d-flex align-items-center gap-3">

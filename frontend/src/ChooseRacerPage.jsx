@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import './App.css'
 
 const ChooseRacerPage = () => {
+    const navigate = useNavigate();
+    
     const [horses, setHorses] = useState([]);
 
     const [winnerText, setWinnerText] = useState("");
